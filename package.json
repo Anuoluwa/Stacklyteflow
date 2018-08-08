@@ -1,0 +1,30 @@
+{
+  "name": "stackoverflowclonelite",
+  "version": "1.0.0",
+  "description": "stack overflow lite clone ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anuoluwa/LyteStackOverflow.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "eslint",
+    "babel",
+    "travisci",
+    "code",
+    "climate",
+    "code",
+    "cov"
+  ],
+  "author": "Anuoluwapo Apiti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Anuoluwa/LyteStackOverflow/issues"
+  },
+  "homepage": "https://github.com/Anuoluwa/LyteStackOverflow#readme"
+}
