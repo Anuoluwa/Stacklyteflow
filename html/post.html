@@ -7,6 +7,38 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <section>
+        <div class="form-outer">
+            <form id="question-form">
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="title-label" for="title">
+                            <strong>*Title:</strong>
+                        </label>
+                    </div>
+                    <div class="rightTab">
+                        <input autofocus type="text" name="title" id="title" minlength="4" maxlength="10" class="input-field" placeholder="Title">
+                    </div>
+                </div>
+                <div class="rowTab">
+                    <div class="labels">
+                        <label id="text" for="text">
+                            <strong>*Text:</strong>
+                        </label>
+                    </div>
+                    <div class="rightTab">
+                        <input type="text" name="text" id="text" class="input-field" required placeholder="text for question">
+                    </div>
+                </div>
+
+                <button id="submit" class="submit" type="submit">P O S T</button>
+            </form>
+            <br>
+            <div class="results">
+                <p class="result"></p>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
