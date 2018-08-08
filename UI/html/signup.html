@@ -1,12 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <section>
+        <!-- The Modal -->
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="/action_page.php">
+
+                <div class="container">
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="username-label" for="username">
+                                <strong>* Username:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
+                        </div>
+                    </div>
+
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="email-label" for="email">
+                                <strong>* Email:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="password-label" for="password">
+                                <strong>* Password:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="password" name="password" id="passwordField" minlength="6" class="input-field" placeholder="Enter your password"
+                                required>
+                        </div>
+                    </div>
+                    <button id="submit" class="submit" type="submit">POST</button>
+            </form>
+            </div>
+
+
+
+    </section>
+
 </body>
+
 </html>
