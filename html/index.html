@@ -1,90 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>StackOverflow-Lite Clone</title>
 </head>
+
 <body>
-<header class="header">
-    <div class="logo">
-        <h1>
-            <a href="">StackOverflowLite</a>
-        </h1>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>
+                    <a href="">StackOverflowLite</a>
+                </h1>
 
-    </div>
-    <div>
-        <div id="myOverlay" class="overlay">
-            <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
-            <div class="overlay-content">
-                <form action="action_page.php">
-                    <input type="text" placeholder="Search.." name="search">
-                    <button type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
             </div>
-        </div>
+            <div>
+                <div id="" class="">
+                    <div class="">
+                        <form action="">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <nav id="nav-bar">
+                <ul class="navbar">
+                    <li>
+                            <button onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
+                    </li>
+                    <li>
+                        <button onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Sign up</button>
+                    </li>
+                </ul>
+            </nav>
+    </header>
     </div>
-    <nav id="nav-bar">
-        <ul class="navbar">
-            <li>
-                <a class="nav-link" href="login.html">Login In</a>
-            </li>
-            <li>
-                <a class="nav-link" href="signup.html">Sign Up</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main>
-    <section class="main">
-        <div id="flex-banner">
+    <!-- Modal for sign up and login-->
+    <section>
+        <!-- The Modal -->
+        <div id="signup" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-        </div>
-        <div id="flex-signup">
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="">
 
-        </div>
+                <div class="container">
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="username-label" for="username">
+                                <strong>* Username:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
+                        </div>
+                    </div>
+
+
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="email-label" for="email">
+                                <strong>* Email:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="password-label" for="password">
+                                <strong>* Password:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="password" name="password" id="passwordField" minlength="6" class="input-field" placeholder="Enter your password"
+                                required>
+                        </div>
+                    </div>
+                    <button id="submit" class="submit" type="submit">POST</button>
+            </form>
+            </div>
     </section>
-    <br>
-<section class="question-thread">
-    <div>
-        <nav id="nav-bar">
-            <ul class="navbar">
-                <li>
-                    <a class="thread-link" href="#">Newest</a>
-                </li>
-                <li>
-                    <a class="thread-link" href="#">Top</a>
-                </li>
-                <li>
-                    <a class="thread-link" href="post.html">New Question</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <!-- login modal -->
+    <section>
+        <!-- The Modal -->
+        <div id="login" class="modal">
+            <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
 
-</section>
-</main>
-<footer class="primary-footer">
-    <nav>
-        <ul class="footer-main">
-            <li>
-                <a href="index.html">Home</a>
-            </li>
+            <!-- Modal Content -->
+            <form class="modal-content animate" action="">
 
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Community</a>
-            </li>
-        </ul>
-    </nav>
-    <small>&copy; 2018 Andela Challenge Cycle 35</small> 
-</footer>
-    
+                <div class="container">
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="email-label" for="email">
+                                <strong>* Email:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="rowTab">
+                        <div class="labels">
+                            <label id="password-label" for="password">
+                                <strong>* Password:</strong>
+                            </label>
+                        </div>
+                        <div class="rightTab">
+                            <input type="password" name="password" id="passwordField" minlength="6" class="input-field" placeholder="Enter your password"
+                                required>
+                        </div>
+                    </div>
+                    <button id="submit" class="submit" type="submit">POST</button>
+            </form>
+            </div>
+    </section>
+
+    <main>
+        <section class="main">
+            <div class="container">
+                <div id="flex-banner">
+                    <h1>Built for developers</h1>
+                    <p>Are you in doubt of anything about software engineering, share and gain understanding and build software
+                        alongside millions of other developers.</p>
+
+                </div>
+                <div id="flex-signup">
+                    <div class="form-outer">
+                        <form id="survey-form">
+                            <div class="rowTab">
+                                <div class="labels">
+                                    <label id="username-label" for="username">
+                                        <strong>Username*:</strong>
+                                    </label>
+                                </div>
+                                <div class="rightTab">
+                                    <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
+                                </div>
+                            </div>
+                            <div class="rowTab">
+                                <div class="labels">
+                                    <label id="email-label" for="email">
+                                        <strong>Email*:</strong>
+                                    </label>
+                                </div>
+                                <div class="rightTab">
+                                    <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
+                                </div>
+                            </div>
+                            <div class="rowTab">
+                                <div class="labels">
+                                    <label id="password-label" for="password">
+                                        <strong>Password*:</strong>
+                                    </label>
+                                </div>
+                                <div class="rightTab">
+                                    <input type="password" name="password" id="passwordField" class="input-field" minlength="6" placeholder="Enter your password"
+                                        required>
+                                </div>
+                            </div>
+                            <button id="submit" class="submit" type="submit">Sign Up</button>
+                        </form>
+                        <br>
+                        <small>Already have an account?
+                            <strong>log in</strong>
+                        </small>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <br>
+        <section class="question-thread">
+            <div class="container">
+                <nav id="nav-bar">
+                    <ul class="navbar">
+                        <li>
+                            <a class="thread-link" href="#">Newest</a>
+                        </li>
+                        <li>
+                            <a class="thread-link" href="#">Top</a>
+                        </li>
+                        <li>
+                            <a class="thread-link" href="post.html">New Question</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+        </section>
+    </main>
+    <footer class="primary-footer">
+        <div class="container">
+            <nav>
+                <ul class="footer-main">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#">Community</a>
+                    </li>
+                </ul>
+            </nav>
+            <small>&copy; 2018 Andela Challenge Cycle 35</small>
+        </div>
+
+    </footer>
+
 </body>
+
 </html>
