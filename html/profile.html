@@ -1,12 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>StackOverflow-Lite Clone</title>
 </head>
+
 <body>
-    
+    <header class="header">
+        <div class="logo">
+            <h1>
+                <a href="">StackOverflowLite</a>
+            </h1>
+
+        </div>
+        <div>
+            <div id="myOverlay" class="overlay">
+                <span class="closebtn" onclick="closeSearch()" title="Close Overlay">x</span>
+                <div class="overlay-content">
+                    <form action="action_page.php">
+                        <input type="text" placeholder="Search.." name="search">
+                        <button type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <nav id="nav-bar">
+            <ul class="navbar">
+                <li>
+                    <a class="thread-link" href="#">Home</a>
+                </li>
+                <li>
+                    <a class="thread-link" href="#">Top</a>
+                </li>
+                <li>
+                    <a class="thread-link" href="post.html">Newest</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="index.html">New Post</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#">Log Out</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="sidebar">
+            <a href="#home"><i class=""></i> Home</a>
+            <a href="#services"><i class=""></i> Question <span>50</span></a>
+            <a href="#clients"><i class=""></i> Answers <span>50</span></a>
+            <a href="#contact"><i class=""></i> Comments <span>50</span></a>
+          </div>
+   
+    <footer class="primary-footer">
+        <nav>
+            <ul class="footer-main">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="#">About</a>
+                </li>
+
+                <li>
+                    <a href="#">Community</a>
+                </li>
+            </ul>
+        </nav>
+        <small>&copy; 2018 Andela Challenge Cycle 35</small>
+    </footer>
+
 </body>
+
 </html>
