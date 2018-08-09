@@ -14,120 +14,26 @@
         <div class="container">
             <div class="logo">
                 <h1>
-                    <a href="">StackOverflowLite</a>
+                    <a href="">LiteStack</a>
                 </h1>
 
             </div>
-            <div>
-                <div id="" class="">
-                    <div class="">
-                        <form action="">
-                            <input type="text" placeholder="Search.." name="search">
-                            <button type="submit">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <nav id="nav-bar">
+            <nav class="nav primary-nav">
                 <ul class="navbar">
                     <li>
-                            <button onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
+                        <button onclick="document.getElementById('login').style.display='block'" style="width:auto;">Login</button>
                     </li>
                     <li>
                         <button onclick="document.getElementById('signup').style.display='block'" style="width:auto;">Sign up</button>
                     </li>
                 </ul>
             </nav>
+        </div>    
     </header>
-    </div>
-    <!-- Modal for sign up and login-->
-    <section>
-        <!-- The Modal -->
-        <div id="signup" class="modal">
-            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-            <!-- Modal Content -->
-            <form class="modal-content animate" action="">
-
-                <div class="container">
-                    <div class="rowTab">
-                        <div class="labels">
-                            <label id="username-label" for="username">
-                                <strong>* Username:</strong>
-                            </label>
-                        </div>
-                        <div class="rightTab">
-                            <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
-                        </div>
-                    </div>
-
-
-                    <div class="rowTab">
-                        <div class="labels">
-                            <label id="email-label" for="email">
-                                <strong>* Email:</strong>
-                            </label>
-                        </div>
-                        <div class="rightTab">
-                            <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
-                        </div>
-                    </div>
-                    <div class="rowTab">
-                        <div class="labels">
-                            <label id="password-label" for="password">
-                                <strong>* Password:</strong>
-                            </label>
-                        </div>
-                        <div class="rightTab">
-                            <input type="password" name="password" id="passwordField" minlength="6" class="input-field" placeholder="Enter your password"
-                                required>
-                        </div>
-                    </div>
-                    <button id="submit" class="submit" type="submit">POST</button>
-            </form>
-            </div>
-    </section>
-    <!-- login modal -->
-    <section>
-        <!-- The Modal -->
-        <div id="login" class="modal">
-            <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-            <!-- Modal Content -->
-            <form class="modal-content animate" action="">
-
-                <div class="container">
-                    <div class="rowTab">
-                        <div class="labels">
-                            <label id="email-label" for="email">
-                                <strong>* Email:</strong>
-                            </label>
-                        </div>
-                        <div class="rightTab">
-                            <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
-                        </div>
-                    </div>
-                    <div class="rowTab">
-                        <div class="labels">
-                            <label id="password-label" for="password">
-                                <strong>* Password:</strong>
-                            </label>
-                        </div>
-                        <div class="rightTab">
-                            <input type="password" name="password" id="passwordField" minlength="6" class="input-field" placeholder="Enter your password"
-                                required>
-                        </div>
-                    </div>
-                    <button id="submit" class="submit" type="submit">POST</button>
-            </form>
-            </div>
-    </section>
-
+    
     <main>
         <section class="main">
-            <div class="container">
+            <div class="flex-container">
                 <div id="flex-banner">
                     <h1>Built for developers</h1>
                     <p>Are you in doubt of anything about software engineering, share and gain understanding and build software
@@ -199,8 +105,12 @@
 
         </section>
     </main>
-    <footer class="primary-footer">
-        <div class="container">
+    <!-- Footer -->
+    <div>
+        <footer>
+
+            <small>&copy; 2018 LITESTACK</small>
+
             <nav>
                 <ul class="footer-main">
                     <li>
@@ -210,15 +120,19 @@
                     <li>
                         <a href="#">About</a>
                     </li>
+
+                    <li>
+                        <a href="adminSignIn.html">Support</a>
+                    </li>
+
                     <li>
                         <a href="#">Community</a>
                     </li>
                 </ul>
             </nav>
-            <small>&copy; 2018 Andela Challenge Cycle 35</small>
-        </div>
+        </footer>
+    </div>
 
-    </footer>
 
 </body>
 
