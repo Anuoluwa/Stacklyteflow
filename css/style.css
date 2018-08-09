@@ -221,13 +221,19 @@ ul {
     letter-spacing: .5px;
     margin: 0 auto;
     margin-top: 10px;
+    margin-bottom: 10px;
     text-transform: uppercase;
     border: 1px solid #fff;
     padding: 10px 30px;
     width: 338px;
     font-size: 20px;
   }
+ .sign-link {
+   color: rgb(6, 27, 95);
+   text-align: center;
+   font-weight: 100px;
 
+ }
 /*
     ========================================
     Footer
