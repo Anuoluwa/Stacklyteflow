@@ -16,10 +16,10 @@
         <div class="container">
             <nav class="nav-header">
                 <ul class="nav-bar">
-                    <li class="logo">Litestack</li>
+                    <li class="logo"><a>Litestack</a></li>
                     <li>
                     <li class="search-input">
-                        <form>
+                        <form action="" method="">
                             <input class = "search-field" placeholder="Search this platform" />
                             <i class="fa fa-search"></i>
                         </form>
@@ -38,51 +38,49 @@
     <main class="container">
         <section >
             <div class="flex-container">
-                <div id="flex-banner">
-                    <h1>Built for developers</h1>
-                    <p>Are you in doubt of anything about software engineering, share and gain understanding and build software
+                <div class="flex-banner">
+                    <h1>Got questions?</h1>
+                    <p>Are you in doubt of anything <br>
+                        share and gain understanding <br>
+                        and build dream software product <br>
                         alongside millions of other developers.</p>
+                    <h2>We have answers</h2>
+                    <a><h1>Sign Up</h1></a>
 
                 </div>
-                <div id="flex-signup">
-                    <div class="form-outer">
-                        <form id="survey-form">
-                            <div class="rowTab">
-                                <div class="labels">
-                                    <label id="username-label" for="username">
-                                        <strong>Username*:</strong>
-                                    </label>
-                                </div>
-                                <div class="rightTab">
-                                    <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
-                                </div>
-                            </div>
-                            <div class="rowTab">
-                                <div class="labels">
-                                    <label id="email-label" for="email">
-                                        <strong>Email*:</strong>
-                                    </label>
-                                </div>
-                                <div class="rightTab">
-                                    <input type="email" name="email" id="email" class="input-field" required placeholder="Enter your email">
-                                </div>
-                            </div>
-                            <div class="rowTab">
-                                <div class="labels">
-                                    <label id="password-label" for="password">
-                                        <strong>Password*:</strong>
-                                    </label>
-                                </div>
-                                <div class="rightTab">
-                                    <input type="password" name="password" id="passwordField" class="input-field" minlength="6" placeholder="Enter your password"
-                                        required>
-                                </div>
-                            </div>
-                            <button id="submit" class="submit" type="submit">Sign Up</button>
-                        </form>
-                        <br>
+                <div class="flex-signup">
+                    <div class="inner">
+                            <form id="signup-form">
+                                    <div class="rowTab">
+                                      <div class="labels">
+                                        <label id="username-label" for="username">Username:</label>
+                                      </div>
+                                      <div class="rightTab">
+                                        <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
+                                      </div>
+                                    </div>
+                                      <div class="rowTab">
+                                      <div class="labels">
+                                        <label id="email-label" for="email">Email:</label>
+                                      </div>
+                                      <div class="rightTab">
+                                        <input autofocus type="text" name="email" id="email" class="input-field" placeholder="Enter your email">
+                                      </div>
+                                    </div>
+                                
+                                    <div class="rowTab">
+                                      <div class="labels">
+                                        <label id="password-label" for="password">Password:</label>
+                                      </div>
+                                      <div class="rightTab">
+                                        <input type="password" name="password" id="passwordField" minlength="8" class="input-field" placeholder="Enter your password" required>
+                                      </div>
+                                    </div>
+                                    <button id="submit" class="submit" type="submit">Sign Up</button>
+                                  </form>
+                        <hr>
                         <small>Already have an account?
-                            <strong>log in</strong>
+                            <strong>Sign In</strong>
                         </small>
                     </div>
 
