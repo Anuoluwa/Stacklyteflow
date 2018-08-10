@@ -240,6 +240,7 @@ ul {
     ========================================
   */
 .thread-header {
+  display: flex;
   width: 100%;
   height: 40px;
   margin-bottom: 60px;
@@ -280,9 +281,32 @@ ul {
   border-radius: 50px;
   margin-bottom: 20px ;
 }
-.thread-bar li button {
-  }
+/*
+    ========================================
+    Question Thread
+    ========================================
+  */
+.question-lists{
+  display: flex;
+  flex-direction: column;
 
+
+};
+.question-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+.voting {
+  flex-grow: 1
+
+}
+.question-link{
+  flex-grow: 9
+
+}
 
 
 /*
