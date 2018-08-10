@@ -16,70 +16,75 @@
         <div class="container">
             <nav class="nav-header">
                 <ul class="nav-bar">
-                    <li class="logo"><a>Litestack</a></li>
+                    <li class="logo">
+                        <a>Litestack</a>
+                    </li>
                     <li>
-                    <li class="search-input">
-                        <form action="" method="">
-                            <input class = "search-field" placeholder="Search this platform" />
-                            <i class="fa fa-search"></i>
-                        </form>
-                    </li>
-                    <li class="li-btn">
-                        <button class="nav-btn">Sign In</button>
-                    </li>
-                    <li class="li-btn">
-                        <button class="nav-btn">Get Started</button>
-                    </li>
+                        <li class="search-input">
+                            <form action="" method="">
+                                <input class="search-field" placeholder="Search this platform" />
+                                <i class="fa fa-search"></i>
+                            </form>
+                        </li>
+                        <li class="li-btn">
+                            <button class="nav-btn">Sign In</button>
+                        </li>
+                        <li class="li-btn">
+                            <button class="nav-btn">Get Started</button>
+                        </li>
                 </ul>
             </nav>
         </div>
     </header>
 
     <main class="container">
-        <section >
+        <section>
             <div class="flex-container">
                 <div class="flex-banner">
                     <h1>Got questions?</h1>
-                    <p>Are you in doubt of anything <br>
-                        share and gain understanding <br>
-                        and build dream software product <br>
-                        alongside millions of other developers.</p>
+                    <p>Are you in doubt of anything
+                        <br> share and gain understanding
+                        <br> and build dream software product
+                        <br> alongside millions of other developers.</p>
                     <h2>We have answers</h2>
-                    <a><h1>Sign Up</h1></a>
+                    <a>
+                        <h1>Sign Up</h1>
+                    </a>
 
                 </div>
                 <div class="flex-signup">
                     <div class="inner">
-                            <form id="signup-form">
-                                    <div class="rowTab">
-                                      <div class="labels">
-                                        <label id="username-label" for="username">Username:</label>
-                                      </div>
-                                      <div class="rightTab">
-                                        <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
-                                      </div>
-                                    </div>
-                                      <div class="rowTab">
-                                      <div class="labels">
-                                        <label id="email-label" for="email">Email:</label>
-                                      </div>
-                                      <div class="rightTab">
-                                        <input autofocus type="text" name="email" id="email" class="input-field" placeholder="Enter your email">
-                                      </div>
-                                    </div>
-                                
-                                    <div class="rowTab">
-                                      <div class="labels">
-                                        <label id="password-label" for="password">Password:</label>
-                                      </div>
-                                      <div class="rightTab">
-                                        <input type="password" name="password" id="passwordField" minlength="8" class="input-field" placeholder="Enter your password" required>
-                                      </div>
-                                    </div>
-                                    <button id="submit" class="submit" type="submit">Sign Up</button>
-                                  </form>
+                        <form id="signup-form">
+                            <div class="rowTab">
+                                <div class="labels">
+                                    <label id="username-label" for="username">Username:</label>
+                                </div>
+                                <div class="rightTab">
+                                    <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
+                                </div>
+                            </div>
+                            <div class="rowTab">
+                                <div class="labels">
+                                    <label id="email-label" for="email">Email:</label>
+                                </div>
+                                <div class="rightTab">
+                                    <input autofocus type="text" name="email" id="email" class="input-field" placeholder="Enter your email">
+                                </div>
+                            </div>
+
+                            <div class="rowTab">
+                                <div class="labels">
+                                    <label id="password-label" for="password">Password:</label>
+                                </div>
+                                <div class="rightTab">
+                                    <input type="password" name="password" id="passwordField" minlength="8" class="input-field" placeholder="Enter your password"
+                                        required>
+                                </div>
+                            </div>
+                            <button id="submit" class="submit" type="submit">Sign Up</button>
+                        </form>
                         <hr>
-                        <small>Already have an account?
+                        <small class="sign-link">Already have an account?
                             <strong>Sign In</strong>
                         </small>
                     </div>
@@ -88,24 +93,77 @@
             </div>
         </section>
         <br>
-        <section class="question-thread container">
-            <div class="container">
-                <nav id="nav-bar">
-                    <ul class="navbar">
-                        <li>
-                            <a class="thread-link" href="#">Newest</a>
-                        </li>
-                        <li>
-                            <a class="thread-link" href="#">Top</a>
-                        </li>
-                        <li>
-                            <a class="thread-link" href="post.html">New Question</a>
-                        </li>
-                    </ul>
-                </nav>
+        <div class="thread">
+            <nav class="thread-header">
+                <a href="">
+                    <div class="newest nav">
+                        Newest
+                    </div>
+                </a>
+                <a href="">
+                    <div class="top nav">
+                        <a href="#">Top</a>
+                    </div>
+                </a>
+                <a href="">
+                    <div class="question nav">
+                        Post Question
+                    </div>
+                </a>
+
+            </nav>
+            <div class="question-lists">
+                <div class="question-wrapper 1 container">
+                    <div class="voting">
+                        <span>29</span>
+                    </div>
+                    <div class="question-link">
+                        <h2>Jest SecurityError: localStorage is not available for opaque origins</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>1 hour ago</span>
+                        <span>100 comments</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="question-wrapper 2 container">
+                    <div class="voting">
+                        <span>32</span>
+                    </div>
+                    <div class="question-link">
+                        <h2>All Sort an array except one element in JavaScript</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>7 hour ago</span>
+                        <span>120 comments</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="question-wrapper 3 container">
+                    <div class="voting">
+                        <span>35</span>
+                    </div>
+                    <div class="question-link ">
+                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>9 hour ago</span>
+                        <span>1000 comments</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="question-wrapper 4 container">
+                    <div class="voting">
+                        <span>35</span>
+                    </div>
+                    <div class="question-link ">
+                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>9 hour ago</span>
+                        <span>1000 comments</span>
+                    </div>
+                </div>
             </div>
 
-        </section>
+
+        </div>
     </main>
     <!-- Footer -->
     <div>
