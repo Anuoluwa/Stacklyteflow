@@ -278,6 +278,15 @@ ul {
   flex-direction: row;
   
 }
+.thread-btn {
+  font-size: 1em;
+  padding: 5px 15px 5px 15px;
+  border: 0;
+  background: #679E02;
+  color: #F2FFB5;
+  border-radius: 50px;
+}
+
 
 /*
     ========================================
