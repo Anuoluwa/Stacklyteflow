@@ -78,6 +78,7 @@ header {
     color: #F2E3D5;
     padding-top: 10px;
     padding-bottom: 20px;
+    background-color: #061929;
     box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
     
 }
@@ -242,6 +243,7 @@ ul {
 .thread {
   display: flex;
   flex-direction: column;
+  margin-bottom: 70px;
 
 }
 .thread-header {
@@ -348,7 +350,7 @@ footer {
     width: calc(100% - 80px);
     padding: 40px 40px;
     margin-top: 20px;
-    background-color: #111;
+    background-color: #072842;
     overflow: hidden;
 }
 
@@ -373,7 +375,7 @@ footer ul li a {
     .footer {
         color: #648880;
         font-size: 14px;
-        padding-bottom: 44px;
+        padding-bottom: 20px;
         padding-top: 44px;
         
       }
