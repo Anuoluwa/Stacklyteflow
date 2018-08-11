@@ -51,7 +51,7 @@ table {
 body {
     font: 16px/1.5 Roboto, Lato, Raleway, sans-serif;
     line-height: 1;
-    color: #CEEB81;
+    color: whitesmoke;
     background-color: #071826;
 }
 .container {
@@ -66,6 +66,7 @@ a {
   a:hover {
     color: #8458eb;
   }
+
   /*
   ========================================
   Primary header
@@ -146,244 +147,104 @@ ul {
       padding: 10px;
       
   }
+  #title{
+    text-align: center;
+    font-size: 40px;
+    margin: 5px 0 15px 0;
+  }
+  
+  #description {
+    text-align: center;
+    font-size: 20px;
+  }
  
 /*
     ========================================
-    main / hero
+    Form
     ========================================
   */
-.flex-container {
-    display: flex;
-    flex-direction: row;
-    padding:5px;
-    flex-wrap: nowrap;
-    
-    
-}
-
-.flex-banner {
-    flex-grow: 6;
-    text-align: left;
-    padding: 8px;
-    text-align: left;
-    line-height: 30px;
-    color: #F2E3D5;
-}
-.flex-banner h1 {
-    font-size: 40px;
-    font-weight: 300px;
-    padding-bottom: 10px;
-    margin-bottom: 5px;
-    color: rgb(129, 158, 2)
-}
-.flex-banner p {
-    font-size: 20px;
-    font-weight: 400;
-    color: #42B7DD;
-    
-    
-}
-.flex-banner h2 {
-  font-size: 20px;
-  font-weight: 400;
-  text-align: justify;
-  color: #42B7DD;
-}
-.banner-link {
-  margin: 0 auto;
-
-}
-.banner-btn {
-  font-size: 1.5em;
-    border: 0;
-    background: #679E02;
-    color: #F2FFB5;
-    border-radius: 50px;
-    padding: 10px 15px 10px 15px;
-}
-.flex-signup  {
-    flex-grow: 4;
-    background-color: #f5f5f5;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    width: 30%;
-    max-width: 600px;
-    padding: 30px;
-  }
-  
 .labels {
-    display: block;
-    text-align: left; 
-    padding-left: 10px;
-    vertical-align: middle;
-    margin-top: 10px;
-    color: #a7a4a4;
+  display: block;
+  text-align: left;
+  font-weight: 600;
+  width: 58%;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+.rowTab {
+  display: block;
+  text-align: center;
+  width: 100%;
+  vertical-align: middle;
+  padding-right:50px;
+  margin: 30px 0 30px 0;
+}
+.input-field {
+  height: 30px;
+  width: 570px;
+  padding: 5px;
+  margin: 10px;
+  border: 1.5px solid #c0c0c0;
+  border-radius: 5px;
+}
+.form-outer {
+  background-color: #072842;;
+  margin: 0 auto;
+  margin-top: 20px;
+  border-radius: 4px;
+  width: 50%;
+  min-height: 500px;
+  max-width: 600px;
+  padding: 30px;
+  border: 3px solid #164059;
+  box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
+}
+
+.submit {
+  border-radius: 5px;
+  background-color: green;
+  color: #fff;
+  cursor: pointer;
+  display: block;
+  font-weight: 400;
+  letter-spacing: .5px;
+  margin: 0 auto;
+  margin-top: 10px;
+  text-transform: uppercase;
+  border: 1px solid #fff;
+  padding: 10px 30px;
+  width: 338px;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 833px) {
+  .input-field {
+    width: 80%;
   }
-  .rowTab {
-    display: block;
+}
+
+@media screen and (max-width: 520px) {
+  .labels {
+    width: 100%;
     text-align: left;
-    margin: 0 auto;
-    width: 300px;
-    vertical-align: middle;
-    padding-right:50px;
+  }
+  .rightTab {
+    width: 80%;
+    float: left;
   }
   .input-field {
-    height: 30px;
-    width: 320px;
-    padding: 5px;
-    margin: 10px;
-    border: 1.5px solid #c0c0c0;
-    border-radius: 5px;
+    width: 100%;
   }
-  
-  .submit {
-    border-radius: 5px;
-    vertical-align: middle;
-    background-color: green;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    font-weight: 400;
-    letter-spacing: .5px;
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    border: 1px solid #fff;
-    padding: 10px 30px;
-    width: 338px;
-    font-size: 20px;
-  }
- .sign-link {
-   color: rgb(6, 27, 95);
-   text-align: center;
-   font-weight: 100px;
- }
-
-/*
-    ========================================
-    Question Threadlist
-    ========================================
-  */
-.thread {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 70px;
-
 }
-.thread-header {
-  display: flex;
-  width: 100%;
-  height: 50px;
-  background: #164059;
-  flex-direction: row;
-  align-items: center; 
-  font-size: 20px;
-  color:  #F2E3D5;
-  font-weight: 500;
-  
-}
-.thread-header div {
-  padding: 0 60px 0 40px;
-  font-weight: 800px;
-  
-}
-.thread-header a  {
-  color:  #F2E3D5;
-}
-.thread-header a:hover  {
-  color:  rgb(209, 105, 8);
-}
-.question-lists {
-  display: flex;
-  flex-direction: column;
-}
-.question-wrapper {
-  display: flex;
-  flex-direction: row;
-  
-}
-.thread-btn {
-  font-size: 1em;
-  padding: 5px 15px 5px 15px;
-  border: 0;
-  background: #679E02;
-  color: #F2FFB5;
-  border-radius: 50px;
-}
-
-
-/*
-    ========================================
-    Question Thread lists
-    ========================================
-  */
-.question-lists{
-  display: flex;
-  flex-direction: column;
-  color: #B9C6CA;
-  padding-top: 40px;
-  background: #1B2F48;
-
-
-};
-.question-wrapper {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-}
-.voting {
-  flex-grow: 1;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-
-}
-.question-link{
-  flex-grow: 3;
-  align-items: center;
-  justify-content: center;
-  padding-bottom: 10px;
-  padding-bottom: 10px;
-
-}
-.question-link h2{
-  font-family: Lato, sans-serif;
-  font-size: 24px;
-  font-weight: 200;
-  padding-bottom: 5px;
-
-}
-.question-link small{
-  font-family: Lato, sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgb(13, 174, 223);
- 
-
-}
-.question-link span{
-  font-size: 12px;
-  font-weight: 200;
-  text-align: right;
-  color: rgb(209, 105, 8);
- 
-
-}
-
 /*
     ========================================
     Footer
     ========================================
   */
 
-footer {
+  footer {
     width: calc(100% - 80px);
     padding: 40px 40px;
-    margin-top: 20px;
     background-color: #072842;
     overflow: hidden;
 }
