@@ -5,97 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
     <title>StackOverflow-Lite Clone</title>
 </head>
 
 <body>
-    <header class="">
-        <div class="container">
-            <nav class="nav-header">
-                <ul class="nav-bar">
-                    <li class="logo">
-                        <a>
-                            <em>Lite</em>stack</a>
-                    </li>
-                    <li>
-                        <li class="search-input">
-                            <form action="" method="">
-                                <input class="search-field" placeholder="Search this platform" />
-                                <i class="fa fa-search"></i>
-                            </form>
-                        </li>
-                        <li class="li-btn">
-                            <button class="nav-btn">Sign In</button>
-                        </li>
-                        <li class="li-btn">
-                            <button class="nav-btn">Get Started</button>
-                        </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+        <header class="">
+                <div class="container">
+                    <nav class="nav-header">
+                        <ul class="nav-bar">
+                            <li class="logo">
+                                <a>
+                                    <em>Lite</em>stack</a>
+                            </li>
+                            <li>
+                                <li class="search-input">
+                                    <form action="" method="">
+                                        <input class="search-field" placeholder="Search this platform" />
+                                        <i class="fa fa-search"></i>
+                                    </form>
+                                </li>
+                                <li class="li-btn">
+                                    <button class="nav-btn">Sign In</button>
+                                </li>
+                                <li class="li-btn">
+                                    <button class="nav-btn">Get Started</button>
+                                </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
     <main class="container">
-        <section>
-            <div class="flex-container">
-                <div class="flex-banner">
-                    <h1>Got questions?</h1>
-                    <p> No worries, we give you lite version of StackOverflow<br>
-                        to speed up things and tailor you answers, get connected,<br>  
-                        share and gain understanding and build dream your<br>
-                         software product alongside millions of other developers.</p>
-                    <h2>We have answers, even to your unsaid questions!</h2>
-                    <a class="banner-link">
-                        <button class= "banner-btn">Join Us!</button>
-                    </a>
-
-                </div>
-                <div class="flex-signup">
-                    <div class="inner">
-                        <form id="signup-form">
-                            <div class="rowTab">
-                                <div class="labels">
-                                    <label id="username-label" for="username">Username:</label>
-                                </div>
-                                <div class="rightTab">
-                                    <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
-                                </div>
-                            </div>
-                            <div class="rowTab">
-                                <div class="labels">
-                                    <label id="email-label" for="email">Email:</label>
-                                </div>
-                                <div class="rightTab">
-                                    <input autofocus type="text" name="email" id="email" class="input-field" placeholder="Enter your email">
-                                </div>
-                            </div>
-
-                            <div class="rowTab">
-                                <div class="labels">
-                                    <label id="password-label" for="password">Password:</label>
-                                </div>
-                                <div class="rightTab">
-                                    <input type="password" name="password" id="passwordField" minlength="8" class="input-field" placeholder="Enter your password"
-                                        required>
-                                </div>
-                            </div>
-                            <button id="submit" class="submit" type="submit">Sign Up</button>
-                        </form>
-                        <hr>
-                        <small class="sign-link">Already have an account?
-                            <strong>Sign In</strong>
-                        </small>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-        <br>
+        <div>
+            <h4>John Doe</h4>
+            <small>johndoe@gmail.com</small>
+            <span>Created: 20th, August 2018</span>
+            <hr>
+        </div>
         <div class="thread">
             <nav class="thread-header">
+                <a href="">
+                    <div class="question nav">
+                        <p>All Questions <small id="no-QnA">35</small></p>
+                        
+                    </div>
+                </a>
+                <a href="">
+                    <div class="answer nav">
+                            <p>All Answers <small id="no-QnA">32</small></p>
+                    </div>
+                </a>
                 <a href="">
                     <div class="newest nav">
                         Newest
@@ -108,7 +69,7 @@
                 </a>
                 <a href="post.html">
                     <div class="question nav">
-                            <button type="button" class="thread-btn">Ask Question</button>
+                        <button type="button" class="thread-btn">Ask Question</button>
                     </div>
                 </a>
 
@@ -119,7 +80,9 @@
                         <span>29</span>
                     </div>
                     <div class="question-link">
-                        <h2><a href="postdetails.html">Jest SecurityError: localStorage is not available for opaque origins</a></h2>
+                        <h2>
+                            <a href="postdetails.html">Jest SecurityError: localStorage is not available for opaque origins</a>
+                        </h2>
                         <small>By Anuoluwapo Apiti</small>
                         <span>1 hour ago</span>
                         <span>110 Answerss</span>
@@ -132,7 +95,9 @@
                         <span>32</span>
                     </div>
                     <div class="question-link">
-                        <h2><a href="postdetails.html">All Sort an array except one element in JavaScript</a></h2>
+                        <h2>
+                            <a href="postdetails.html">All Sort an array except one element in JavaScript</a>
+                        </h2>
                         <small>By Anuoluwapo Apiti</small>
                         <span>7 hour ago</span>
                         <span>110 Answers</span>
@@ -145,7 +110,9 @@
                         <span>35</span>
                     </div>
                     <div class="question-link ">
-                        <h2><a href="postdetails.html">Replacing a dot using JavaScript instead removes everything</a></h2>
+                        <h2>
+                            <a href="postdetails.html">Replacing a dot using JavaScript instead removes everything</a>
+                        </h2>
                         <small>By Anuoluwapo Apiti</small>
                         <span>9 hour ago</span>
                         <span>1000 Answers</span>
@@ -166,37 +133,37 @@
                     </div>
                 </div>
                 <div class="question-wrapper 5 container">
-                        <div class="voting">
-                            <span>35</span>
-                        </div>
-                        <div class="question-link ">
-                            <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                            <small>By Anuoluwapo Apiti</small>
-                            <span>9 hour ago</span>
-                            <span>1000 Answers</span>
-                            <span>134 Comments</span>
-                        </div>
+                    <div class="voting">
+                        <span>35</span>
                     </div>
-                    <div class="question-wrapper 6 container">
-                            <div class="voting">
-                                <span>35</span>
-                            </div>
-                            <div class="question-link ">
-                                <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                                <small>By Anuoluwapo Apiti</small>
-                                <span>9 hour ago</span>
-                                <span>1000 Answers</span>
-                                <span>134 Comments</span>
-                            </div>
+                    <div class="question-link ">
+                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>9 hour ago</span>
+                        <span>1000 Answers</span>
+                        <span>134 Comments</span>
                     </div>
-                    <div class="question-wrapper 7 container">
-                            <div class="voting">
-                                
-                            </div>
-                            <div class="question-link ">
-                                
-                            </div>
+                </div>
+                <div class="question-wrapper 6 container">
+                    <div class="voting">
+                        <span>35</span>
                     </div>
+                    <div class="question-link ">
+                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>9 hour ago</span>
+                        <span>1000 Answers</span>
+                        <span>134 Comments</span>
+                    </div>
+                </div>
+                <div class="question-wrapper 7 container">
+                    <div class="voting">
+
+                    </div>
+                    <div class="question-link ">
+
+                    </div>
+                </div>
             </div>
 
 
@@ -204,31 +171,31 @@
     </main>
     <!-- Footer -->
     <div>
-            <footer>
-    
-                <small>&copy; 2018 LITESTACK</small>
-    
-                <nav>
-                    <ul class="footer-main">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-    
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-    
-                        <li>
-                            <a href="adminSignIn.html">Community</a>
-                        </li>
-    
-                        <li>
-                            <a href="#">Support</a>
-                        </li>
-                    </ul>
-                </nav>
-            </footer>
-        </div>
+        <footer>
+
+            <small>&copy; 2018 LITESTACK</small>
+
+            <nav>
+                <ul class="footer-main">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+
+                    <li>
+                        <a href="adminSignIn.html">Community</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
 
 
 
