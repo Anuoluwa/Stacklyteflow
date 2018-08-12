@@ -1,0 +1,319 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 2. v2.0 | 20110126
+  License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@import url('href="https://fonts.googleapis.com/css?family=Roboto|Lato|Raleway"');
+
+body {
+    font: 16px/1.5 Roboto, Lato, Raleway, sans-serif;
+    line-height: 1;
+    color: whitesmoke;
+    background-color: #071826;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+a {
+    color: #0051FF;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #8458eb;
+  }
+  /*
+  ========================================
+  Primary header
+  ========================================
+*/
+header {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 40px;
+    color: #F2E3D5;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #061929;
+    box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
+    
+}
+.logo {
+    font-size: 50px;
+
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+  }
+ 
+  .search-input {
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 35px;
+  } 
+  
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    color: #42B7DD;
+   
+  }
+  .nav-bar li {
+    cursor: pointer;
+  }
+  .nav-bar li:hover{
+    color: rgba(85,172,238 ,1);
+  }
+  
+  .nav-bar li:not(:last-child):not(.twitter__bird) {
+    margin-right: 10px;
+  }
+  .nav-bar li  i:not(.fa-twitter):not(.fa-search):not(.fa-user-circle-o) {
+    margin-right: 3px;
+  }
+  .nav-bar li > button {
+    font-size: 1em;
+    border: 0;
+    background: #679E02;
+    color: #F2FFB5;
+    border-radius: 50px;
+  }
+
+  .search-field {
+    height: 20px;
+    width: 300px;
+    padding: 5px;
+    margin: 10px;
+    border: 1.5px solid #c0c0c0;
+    border-radius: 5px;
+  }
+
+  .input-field {
+    height: 20px;
+    width: 320px;
+    padding: 5px;
+    margin: 10px;
+    border: 1.5px solid #c0c0c0;
+    border-radius: 5px;
+  }
+  .nav-btn {
+      padding: 10px;
+      
+  }
+ 
+
+/*
+    ========================================
+    Question Thread lists
+    ========================================
+  */
+.question-lists{
+  display: flex;
+  flex-direction: column;
+  color: #B9C6CA;
+};
+.question-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.postdetails{
+  flex-grow: 3;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 30px;
+
+}
+.postdetails h2{
+  font-family: Lato, sans-serif;
+  font-size: 30px;
+  font-weight: 200;
+  padding-bottom: 5px;
+  color: rgb(13, 174, 223);
+  text-align: justify;
+}
+.postdetails p {
+    color: rgba(245, 245, 245, 0.877);
+    line-height: 20px;
+    font-size: 16px;
+    text-align: justify;
+}
+.postdetails small{
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgb(13, 174, 223);
+}
+.postdetails span{
+  font-size: 14px;
+  font-weight: 200;
+  text-align: right;
+  color: rgb(209, 105, 8);
+  float: right;
+ 
+}
+.date {
+    margin-bottom: 20px;
+}
+
+/*
+    ========================================
+     Answer Form
+    ========================================
+  */
+
+  .rowTab {
+    display: block;
+    text-align: center;
+    width: 100%;
+    vertical-align: left;
+    padding-right:50px;
+    margin: 30px 0 30px 0;
+  }
+ 
+  
+  .submit {
+    border-radius: 5px;
+    background-color: green;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-weight: 400;
+    letter-spacing: .5px;
+    margin: 0 auto;
+    margin-top: 10px;
+    text-transform: uppercase;
+    border: 1px solid #fff;
+    padding: 10px 30px;
+    width: 338px;
+    font-size: 20px;
+  }
+  
+  @media screen and (max-width: 833px) {
+    .input-field {
+      width: 80%;
+    }
+  }
+  
+  @media screen and (max-width: 520px) {
+    .labels {
+      width: 100%;
+      text-align: left;
+    }
+    .rightTab {
+      width: 80%;
+      float: left;
+    }
+    .input-field {
+      width: 100%;
+    }
+  }
+
+/*
+    ========================================
+    Footer
+    ========================================
+  */
+
+footer {
+    width: calc(100% - 80px);
+    padding: 40px 40px;
+    margin-top: 20px;
+    background-color: #072842;
+    overflow: hidden;
+}
+
+footer ul {
+    width: fit-content;
+    float: left;
+    padding-left: 20px;
+}
+
+footer ul li {
+    display: block;
+    list-style: none;
+}
+
+footer ul li a {
+    font-size: 16px;
+    color: #fff;
+    line-height: 30px;
+}
+
+@media only screen and (min-width: 1000px) {
+    .footer {
+        color: #648880;
+        font-size: 14px;
+        padding-bottom: 20px;
+        padding-top: 44px;
+        
+      }
+      .footer small {
+        float: left;
+        font-weight: 400;
+      }
+      footer ul {
+        width: fit-content;
+        float: right;
+        
+    }
+    footer ul li {
+        display: inline-block;
+        margin: 10px;
+      
+
+    }
+}
