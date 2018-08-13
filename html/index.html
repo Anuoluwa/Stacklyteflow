@@ -18,12 +18,13 @@
                 <ul class="nav-bar">
                     <li class="logo">
                         <a>
-                            <em>Lite</em>stack</a>
+                            <em>Lite</em>stack
+                        </a>
                     </li>
                     <li>
                         <li class="search-input">
                             <form action="" method="">
-                                <input class="search-field" placeholder="Search this platform" />
+                                <input class="search-field" placeholder="Search Litestack......" />
                                 <i class="fa fa-search"></i>
                             </form>
                         </li>
@@ -39,92 +40,101 @@
     </header>
     <!-- Modal  for both signup and sign in-->
     <section>
-            <div id="signinform" class="modal">
-  
-                    <form class="modal-content animate" action="">
-                     <div class="imgcontainer">
-                        <span onclick="document.getElementById('signinform').style.display='none'" class="close" title="Close Modal">&times;</span>
-                      </div>
-                  
-                      <div class="modal-container">
-                       <div class="modalTab">
-                           <label id="email-label" for="email"><strong>*Email:</strong>
-                       </div>
-                       <div class="rightmodalTab">
-                           <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
-                       </div>
-                        
-                       
-                        <div class="modalTab">
-                            <label id="password-label" for="password"><strong>*Password:</strong>
-                        </div>
-                        <div class="rightmodalTab">
-                            <input id="input" type="password" name="password"  minlength="8" maxlength="12" placeholder="Enter your password" required>
-                        </div>
-                        
-                          
-                        <button id="button" class="submit" type="submit">Sign In</button>
-                      </div>
-                  
-                      <div class="modal-container signup-div" style="background-color:#f1f1f1">
-                        <span class="psw">Don't have an account yet? <a href="#">Sign Up!</a></span>
-                      </div>
-                    </form>
-                    </div>
-                    <!-- signup-->
-                    <div id="signupform" class="modal">
-  
-                            <form class="modal-content animate" action="">
-                             <div class="imgcontainer">
-                                <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
-                              </div>
-                          
-                              <div class="modal-container">
-                                <div class="modalTab">
-                 <label id="username-label" for="username"><strong>*Username:</strong>
-             </div>
-             <div class="rightmodalTab">
-                 <input id="input" autofocus type="text" name="username" id="username" minlength="6" maxlength="10" placeholder="Enter your username">
-             </div>
-                               <div class="modalTab">
-                                   <label id="email-label" for="email"><strong>*Email:</strong>
-                               </div>
-                               <div class="rightmodalTab">
-                                   <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
-                               </div>
-                                
-                               
-                                <div class="modalTab">
-                                    <label id="password-label" for="password"><strong>*Password:</strong>
-                                </div>
-                                <div class="rightmodalTab">
-                                    <input id="input" type="password" name="password"  minlength="8" maxlength="12" placeholder="Enter your password" required>
-                                </div>
-                                
-                                  
-                                <button id="button" class="submit" type="submit">Sign In</button>
-                              </div>
-                          
-                              <div class="modal-container signup-div" style="background-color:#f1f1f1">
-                                <span class="psw">Don't have an account yet? <a href="#">Sign Up!</a></span>
-                              </div>
-                            </form>
-                            </div>
-                    
-    </section>
+        <div id="signinform" class="modal">
 
+            <form class="modal-content animate" action="">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('signinform').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+
+                <div class="modal-container">
+                    <div class="modalTab">
+                        <label id="email-label" for="email">
+                            <strong>*Email:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
+                    </div>
+
+
+                    <div class="modalTab">
+                        <label id="password-label" for="password">
+                            <strong>*Password:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" type="password" name="password" minlength="8" maxlength="12" placeholder="Enter your password" required>
+                    </div>
+
+
+                    <button id="button" class="submit" type="submit">Sign In</button>
+                </div>
+
+                <div class="modal-container signup-div" style="background-color:#f1f1f1">
+                    <span class="psw">Don't have an account yet?
+                        <a href="#">Sign Up!</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <!-- signup-->
+        <div id="signupform" class="modal">
+
+            <form class="modal-content animate" action="">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+
+                <div class="modal-container">
+                    <div class="modalTab">
+                        <label id="username-label" for="username">
+                            <strong>*Username:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" autofocus type="text" name="username" id="username" minlength="6" maxlength="10" placeholder="Enter your username">
+                    </div>
+                    <div class="modalTab">
+                        <label id="email-label" for="email">
+                            <strong>*Email:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
+                    </div>
+
+
+                    <div class="modalTab">
+                        <label id="password-label" for="password">
+                            <strong>*Password:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" type="password" name="password" minlength="8" maxlength="12" placeholder="Enter your password" required>
+                    </div>
+
+
+                    <button id="button" class="submit" type="submit">Sign In</button>
+                </div>
+
+                <div class="modal-container signup-div" style="background-color:#f1f1f1">
+                    <span class="psw">Don't have an account yet?
+                        <a href="#">Sign Up!</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+    </section>
+   <!-- main banner and call to action -->
     <main class="container">
         <section>
             <div class="flex-container">
                 <div class="flex-banner">
                     <h1>Got questions?</h1>
-                    <p> No worries, we give you lite version of StackOverflow<br>
-                        to speed up things and tailor you answers, get connected,<br>  
-                        share and gain understanding and build dream your<br>
-                         software product alongside millions of other developers.</p>
+                    <p> No worries, we give you lite version of StackOverflow
+                        <br> to speed up things and tailor you answers, get connected,
+                        <br> share and gain understanding and build dream your
+                        <br> software product alongside millions of other developers.</p>
                     <h2>We have answers, even to your unsaid questions!</h2>
                     <a class="banner-link">
-                        <button class= "banner-btn">Join Us!</button>
+                        <button class="banner-btn">Join Us!</button>
                     </a>
 
                 </div>
@@ -183,7 +193,7 @@
                 </a>
                 <a href="post.html " class="ask">
                     <div class="question nav ">
-                            <button type="button" class="thread-btn">Ask Question</button>
+                        <button type="button" class="thread-btn">Ask Question</button>
                     </div>
                 </a>
 
@@ -194,7 +204,9 @@
                         <span>29</span>
                     </div>
                     <div class="question-link">
-                        <h2><a href="postdetails.html">Jest SecurityError: localStorage is not available for opaque origins</a></h2>
+                        <h2>
+                            <a href="postdetails.html">Jest SecurityError: localStorage is not available for opaque origins</a>
+                        </h2>
                         <small>By Anuoluwapo Apiti</small>
                         <span>1 hour ago</span>
                         <span>110 Answerss</span>
@@ -207,7 +219,9 @@
                         <span>32</span>
                     </div>
                     <div class="question-link">
-                        <h2><a href="postdetails.html">All Sort an array except one element in JavaScript</a></h2>
+                        <h2>
+                            <a href="postdetails.html">All Sort an array except one element in JavaScript</a>
+                        </h2>
                         <small>By Anuoluwapo Apiti</small>
                         <span>7 hour ago</span>
                         <span>110 Answers</span>
@@ -220,7 +234,9 @@
                         <span>35</span>
                     </div>
                     <div class="question-link ">
-                        <h2><a href="postdetails.html">Replacing a dot using JavaScript instead removes everything</a></h2>
+                        <h2>
+                            <a href="postdetails.html">Replacing a dot using JavaScript instead removes everything</a>
+                        </h2>
                         <small>By Anuoluwapo Apiti</small>
                         <span>9 hour ago</span>
                         <span>1000 Answers</span>
@@ -241,37 +257,37 @@
                     </div>
                 </div>
                 <div class="question-wrapper 5 container">
-                        <div class="voting">
-                            <span>35</span>
-                        </div>
-                        <div class="question-link ">
-                            <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                            <small>By Anuoluwapo Apiti</small>
-                            <span>9 hour ago</span>
-                            <span>1000 Answers</span>
-                            <span>134 Comments</span>
-                        </div>
+                    <div class="voting">
+                        <span>35</span>
                     </div>
-                    <div class="question-wrapper 6 container">
-                            <div class="voting">
-                                <span>35</span>
-                            </div>
-                            <div class="question-link ">
-                                <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                                <small>By Anuoluwapo Apiti</small>
-                                <span>9 hour ago</span>
-                                <span>1000 Answers</span>
-                                <span>134 Comments</span>
-                            </div>
+                    <div class="question-link ">
+                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>9 hour ago</span>
+                        <span>1000 Answers</span>
+                        <span>134 Comments</span>
                     </div>
-                    <div class="question-wrapper 7 container">
-                            <div class="voting">
-                                
-                            </div>
-                            <div class="question-link ">
-                                
-                            </div>
+                </div>
+                <div class="question-wrapper 6 container">
+                    <div class="voting">
+                        <span>35</span>
                     </div>
+                    <div class="question-link ">
+                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
+                        <small>By Anuoluwapo Apiti</small>
+                        <span>9 hour ago</span>
+                        <span>1000 Answers</span>
+                        <span>134 Comments</span>
+                    </div>
+                </div>
+                <div class="question-wrapper 7 container">
+                    <div class="voting">
+
+                    </div>
+                    <div class="question-link ">
+
+                    </div>
+                </div>
             </div>
 
 
@@ -279,31 +295,31 @@
     </main>
     <!-- Footer -->
     <div>
-            <footer>
-    
-                <small>&copy; 2018 LITESTACK</small>
-    
-                <nav>
-                    <ul class="footer-main">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-    
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-    
-                        <li>
-                            <a href="adminSignIn.html">Community</a>
-                        </li>
-    
-                        <li>
-                            <a href="#">Support</a>
-                        </li>
-                    </ul>
-                </nav>
-            </footer>
-        </div>
+        <footer>
+
+            <small>&copy; 2018 LITESTACK</small>
+
+            <nav>
+                <ul class="footer-main">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+
+                    <li>
+                        <a href="adminSignIn.html">Community</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
 
 
 
