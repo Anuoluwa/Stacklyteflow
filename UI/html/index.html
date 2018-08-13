@@ -18,19 +18,20 @@
                 <ul class="nav-bar">
                     <li class="logo">
                         <a>
-                            <em>Lite</em>stack</a>
+                            Litestack
+                        </a>
                     </li>
                     <li>
                         <li class="search-input">
-                            <form action="" method="">
-                                <input class="search-field" placeholder="Search this platform" />
-                                <i class="fa fa-search"></i>
+                            <form>
+                                <input class="search-field" placeholder="Search Litestack......" />
+                                <i class="fa fa-search fa-lg"></i>
                             </form>
                         </li>
-                        <li class="li-btn">
-                            <button class="nav-btn" onclick="document.getElementById('signinform').style.display='block'" style="width:auto;">Sign In</button>
+                        <li class="">
+                            <button id="signin" class="nav-btn signin" onclick="document.getElementById('signinform').style.display='block'" style="width:auto;">Sign In</button>
                         </li>
-                        <li class="li-btn">
+                        <li class="li-btn ">
                             <button class="nav-btn" onclick="document.getElementById('signupform').style.display='block'" style="width:auto;">Sign Up</button>
                         </li>
                 </ul>
@@ -39,94 +40,100 @@
     </header>
     <!-- Modal  for both signup and sign in-->
     <section>
-            <div id="signinform" class="modal">
-  
-                    <form class="modal-content animate" action="">
-                     <div class="imgcontainer">
-                        <span onclick="document.getElementById('signinform').style.display='none'" class="close" title="Close Modal">&times;</span>
-                      </div>
-                  
-                      <div class="modal-container">
-                       <div class="modalTab">
-                           <label id="email-label" for="email"><strong>*Email:</strong>
-                       </div>
-                       <div class="rightmodalTab">
-                           <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
-                       </div>
-                        
-                       
-                        <div class="modalTab">
-                            <label id="password-label" for="password"><strong>*Password:</strong>
-                        </div>
-                        <div class="rightmodalTab">
-                            <input id="input" type="password" name="password"  minlength="8" maxlength="12" placeholder="Enter your password" required>
-                        </div>
-                        
-                          
-                        <button id="button" class="submit" type="submit">Sign In</button>
-                      </div>
-                  
-                      <div class="modal-container signup-div" style="background-color:#f1f1f1">
-                        <span class="psw">Don't have an account yet? <a href="#">Sign Up!</a></span>
-                      </div>
-                    </form>
-                    </div>
-                    <!-- signup-->
-                    <div id="signupform" class="modal">
-  
-                            <form class="modal-content animate" action="">
-                             <div class="imgcontainer">
-                                <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
-                              </div>
-                          
-                              <div class="modal-container">
-                                <div class="modalTab">
-                 <label id="username-label" for="username"><strong>*Username:</strong>
-             </div>
-             <div class="rightmodalTab">
-                 <input id="input" autofocus type="text" name="username" id="username" minlength="6" maxlength="10" placeholder="Enter your username">
-             </div>
-                               <div class="modalTab">
-                                   <label id="email-label" for="email"><strong>*Email:</strong>
-                               </div>
-                               <div class="rightmodalTab">
-                                   <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
-                               </div>
-                                
-                               
-                                <div class="modalTab">
-                                    <label id="password-label" for="password"><strong>*Password:</strong>
-                                </div>
-                                <div class="rightmodalTab">
-                                    <input id="input" type="password" name="password"  minlength="8" maxlength="12" placeholder="Enter your password" required>
-                                </div>
-                                
-                                  
-                                <button id="button" class="submit" type="submit">Sign In</button>
-                              </div>
-                          
-                              <div class="modal-container signup-div" style="background-color:#f1f1f1">
-                                <span class="psw">Don't have an account yet? <a href="#">Sign Up!</a></span>
-                              </div>
-                            </form>
-                            </div>
-                    
-    </section>
+        <div id="signinform" class="modal">
+            <form class="modal-content animate" action="profile.html">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('signinform').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
 
+                <div class="modal-container">
+                    <div class="modalTab">
+                        <label id="email-label" for="email">
+                            <strong>*Email:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
+                    </div>
+
+
+                    <div class="modalTab">
+                        <label id="password-label" for="password">
+                            <strong>*Password:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" type="password" name="password" minlength="8" maxlength="12" placeholder="Enter your password" required>
+                    </div>
+
+
+                    <button id="button" class="submit" type="submit">Sign In</button>
+                </div>
+
+                <div class="modal-container signup-div" style="background-color:#f1f1f1">
+                    <span class="psw">Don't have an account yet?
+                        <a href="#">Sign Up!</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+        <!-- signup-->
+        <div id="signupform" class="modal">
+            <form class="modal-content animate" action="profile.html">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+
+                <div class="modal-container">
+                    <div class="modalTab">
+                        <label id="username-label" for="username">
+                            <strong>*Username:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" autofocus type="text" name="username" id="username" minlength="6" maxlength="10" placeholder="Enter your username">
+                    </div>
+                    <div class="modalTab">
+                        <label id="email-label" for="email">
+                            <strong>*Email:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" autofocus type="text" name="email" id="email" placeholder="Enter your email">
+                    </div>
+
+
+                    <div class="modalTab">
+                        <label id="password-label" for="password">
+                            <strong>*Password:</strong>
+                    </div>
+                    <div class="rightmodalTab">
+                        <input id="input" type="password" name="password" minlength="8" maxlength="12" placeholder="Enter your password" required>
+                    </div>
+
+
+                    <button id="button" class="submit" type="submit">Sign In</button>
+                </div>
+
+                <div class="modal-container signup-div" style="background-color:#f1f1f1">
+                    <span class="psw">Don't have an account yet?
+                        <a href="#">Sign Up!</a>
+                    </span>
+                </div>
+            </form>
+        </div>
+
+    </section>
+    <!-- main banner and call to action -->
     <main class="container">
-        <section>
+        <section id="about">
             <div class="flex-container">
                 <div class="flex-banner">
-                    <h1>Got questions?</h1>
-                    <p> No worries, we give you lite version of StackOverflow<br>
-                        to speed up things and tailor you answers, get connected,<br>  
-                        share and gain understanding and build dream your<br>
-                         software product alongside millions of other developers.</p>
-                    <h2>We have answers, even to your unsaid questions!</h2>
-                    <a class="banner-link">
-                        <button class= "banner-btn">Join Us!</button>
-                    </a>
-
+                    <div class="banner-text">
+                        <h1>Got questions?</h1>
+                        <p> No worries, we give you lite version of StackOverflow to speed up things and tailor you answers,
+                            get connected, share and gain understanding and build dream your software product alongside millions
+                            of other developers. We have right answers</p>
+                    </div>
+                    <div class="banner-link">
+                        <button class="banner-btn" onclick="document.getElementById('signupform').style.display='block'" style="width:auto;">Join Us!</button>
+                    </div>
                 </div>
                 <div class="flex-signup">
                     <div class="inner">
@@ -161,149 +168,190 @@
                         </form>
                         <hr>
                         <small class="sign-link">Already have an account?
-                            <strong>Sign In</strong>
+                            <strong>
+                                <a href=".signin">Sign In</a>
+                            </strong>
                         </small>
                     </div>
-
                 </div>
             </div>
         </section>
         <br>
         <div class="thread">
             <nav class="thread-header">
-                <a href="">
-                    <div class="newest nav">
-                        Newest
-                    </div>
-                </a>
-                <a href="">
-                    <div class="top nav">
-                        <a href="#">Top</a>
-                    </div>
-                </a>
-                <a href="post.html " class="ask">
-                    <div class="question nav ">
+                <div class="newest">
+                    <a href="#thread">
+                        <div class="newest nav">
+                            <i class="fas fa-question-circle"></i>
+                            <a href="#newest">Newest</a>
+                        </div>
+                    </a>
+                </div>
+                <div class="top">
+                    <a href="#thread">
+                        <div class="top nav">
+                            <i class="fas fa-sort"></i>
+                            <a href="#newest">Top</a>
+                        </div>
+                    </a>
+                </div>
+                <div class="ask-question">
+                    <a href="post.html " class="ask">
+                        <div class="question nav ">
                             <button type="button" class="thread-btn">Ask Question</button>
-                    </div>
-                </a>
-
+                        </div>
+                    </a>
+                </div>
             </nav>
-            <div class="question-lists">
-                <div class="question-wrapper 1 container">
-                    <div class="voting">
-                        <span>29</span>
-                    </div>
-                    <div class="question-link">
-                        <h2><a href="postdetails.html">Jest SecurityError: localStorage is not available for opaque origins</a></h2>
-                        <small>By Anuoluwapo Apiti</small>
-                        <span>1 hour ago</span>
-                        <span>110 Answerss</span>
-                        <span>100 Comments</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="question-wrapper 2 container">
-                    <div class="voting">
-                        <span>32</span>
-                    </div>
-                    <div class="question-link">
-                        <h2><a href="postdetails.html">All Sort an array except one element in JavaScript</a></h2>
-                        <small>By Anuoluwapo Apiti</small>
-                        <span>7 hour ago</span>
-                        <span>110 Answers</span>
-                        <span>120 Comments</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="question-wrapper 3 container">
-                    <div class="voting">
-                        <span>35</span>
-                    </div>
-                    <div class="question-link ">
-                        <h2><a href="postdetails.html">Replacing a dot using JavaScript instead removes everything</a></h2>
-                        <small>By Anuoluwapo Apiti</small>
-                        <span>9 hour ago</span>
-                        <span>1000 Answers</span>
-                        <span>160 Comments</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="question-wrapper 4 container">
-                    <div class="voting">
-                        <span>35</span>
-                    </div>
-                    <div class="question-link ">
-                        <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                        <small>By Anuoluwapo Apiti</small>
-                        <span>9 hour ago</span>
-                        <span>1000 Answers</span>
-                        <span>134 Comments</span>
-                    </div>
-                </div>
-                <div class="question-wrapper 5 container">
+            <section>
+
+            </section>
+            <section id="">
+                <div class="question-lists " id="newest">
+                    <div class="question-wrapper 1">
                         <div class="voting">
-                            <span>35</span>
+                            <span>59</span>
+                            <br>
+                            <small>Answers</small>
                         </div>
-                        <div class="question-link ">
-                            <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                            <small>By Anuoluwapo Apiti</small>
-                            <span>9 hour ago</span>
-                            <span>1000 Answers</span>
-                            <span>134 Comments</span>
+                        <div class="question-link">
+                            <div class="question-title">
+                                <a href="postdetails.html">
+                                    <h2>Jest SecurityError: localStorage is not available for opaque origins</h2>
+                                </a>
+                            </div>
+                            <div class="question-details">
+                                <small>Anuoluwapo Apiti</small>
+                                <span class="time">
+                                    <strong>1</strong> hour ago</span>
+                                <span class="answers">
+                                    <strong>110</strong> Answers</span>
+                                <span class="comments">
+                                    <strong>100</strong> Comments</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="question-wrapper 6 container">
-                            <div class="voting">
-                                <span>35</span>
+                    <div class="question-wrapper 2">
+                        <div class="voting">
+                            <span>49</span>
+                            <br>
+                            <small>Answers</small>
+                        </div>
+                        <div class="question-link">
+                            <div class="question-title">
+                                <a href="postdetails.html">
+                                    <h2>Express.js, error handler doesn't work if I remove next parameter</h2>
+                                </a>
                             </div>
-                            <div class="question-link ">
-                                <h2>Replacing a dot using JavaScript instead removes everything</h2>
-                                <small>By Anuoluwapo Apiti</small>
-                                <span>9 hour ago</span>
-                                <span>1000 Answers</span>
-                                <span>134 Comments</span>
+                            <div class="question-details">
+                                <small>Anu Apiti</small>
+                                <span class="time">
+                                    <strong>7 </strong> hour ago</span>
+                                <span class="answers">
+                                    <strong>80</strong> Answers</span>
+                                <span class="comments">
+                                    <strong>60</strong> Comments</span>
                             </div>
+                        </div>
                     </div>
-                    <div class="question-wrapper 7 container">
-                            <div class="voting">
-                                
+                    <div class="question-wrapper 3">
+                        <div class="voting">
+                            <span>29</span>
+                            <br>
+                            <small>Answers</small>
+                        </div>
+                        <div class="question-link">
+                            <div class="question-title">
+                                <a href="postdetails.html">
+                                    <h2>Resources not being loaded,launch debug mode in VisualStudio</h2>
+                                </a>
                             </div>
-                            <div class="question-link ">
-                                
+                            <div class="question-details">
+                                <small>Anuoluwapo Apiti</small>
+                                <span class="time">
+                                    <strong>1</strong> hour ago</span>
+                                <span class="answers">
+                                    <strong>110</strong> Answers</span>
+                                <span class="comments">
+                                    <strong>100</strong> Comments</span>
                             </div>
+                        </div>
                     </div>
-            </div>
+                    <div class="question-wrapper 1">
+                        <div class="voting">
+                            <span>290</span>
+                            <br>
+                            <small>Answers</small>
+                        </div>
+                        <div class="question-link">
+                            <div class="question-title">
+                                <a href="postdetails.html">
+                                    <h2>Jest SecurityError: localStorage is not available for opaque origins</h2>
+                                </a>
+                            </div>
+                            <div class="question-details">
+                                <small>Anuoluwapo Apiti</small>
+                                <span class="time">
+                                    <strong>1</strong> hour ago</span>
+                                <span class="answers">
+                                    <strong>110</strong> Answers</span>
+                                <span class="comments">
+                                    <strong>100</strong> Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrapper 1">
+                        <div class="voting">
+                            <span>356</span>
+                            <br>
+                            <small>Answers</small>
+                        </div>
+                        <div class="question-link">
+                            <div class="question-title">
+                                <a href="postdetails.html">
+                                    <h2>Jest SecurityError: localStorage is not available for opaque origins</h2>
+                                </a>
+                            </div>
+                            <div class="question-details">
+                                <small>Anuoluwapo Apiti</small>
+                                <span class="time">
+                                    <strong>1</strong> hour ago</span>
+                                <span class="answers">
+                                    <strong>110</strong> Answers</span>
+                                <span class="comments">
+                                    <strong>100</strong> Comments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-
-        </div>
     </main>
     <!-- Footer -->
     <div>
-            <footer>
-    
-                <small>&copy; 2018 LITESTACK</small>
-    
-                <nav>
-                    <ul class="footer-main">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-    
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-    
-                        <li>
-                            <a href="adminSignIn.html">Community</a>
-                        </li>
-    
-                        <li>
-                            <a href="#">Support</a>
-                        </li>
-                    </ul>
-                </nav>
-            </footer>
-        </div>
+        <footer>
+
+            <small>&copy; 2018 LITESTACK</small>
+
+            <nav>
+                <ul class="footer-main">
+
+
+                    <li>
+                        <a href="#about">About</a>
+                    </li>
+
+                    <li>
+                        <a href="#header">Community</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Support</a>
+                    </li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
 
 
 

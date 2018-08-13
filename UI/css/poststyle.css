@@ -52,7 +52,7 @@ body {
     font: 16px/1.5 Roboto, Lato, Raleway, sans-serif;
     line-height: 1;
     color: whitesmoke;
-    background-color: #071826;
+    background-color: rgba(2,23,62,0.9);
 }
 .container {
     width: 80%;
@@ -60,12 +60,12 @@ body {
     overflow: hidden;
 }
 a {
-    color: #0051FF;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #8458eb;
-  }
+  color: #2DCAFF;
+  text-decoration: none;
+}
+a:hover {
+  color: rgba(45,202,255,0.5);
+}
 
   /*
   ========================================
@@ -79,7 +79,7 @@ header {
     color: #F2E3D5;
     padding-top: 10px;
     padding-bottom: 20px;
-    background-color: #061929;
+    background-color: rgba(2,23,62,0.5);
     box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
     
 }
