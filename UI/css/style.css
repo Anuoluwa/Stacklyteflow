@@ -121,18 +121,8 @@ ul {
   }
 
   .search-field {
-    height: 25px;
+    height: 28px;
     width: 450px;
-    padding: 5px;
-    margin: 10px;
-    border: 1.5px solid #c0c0c0;
-    border-radius: 5px;
-  }
-
-  .input-field {
-    height: 20px;
-    width: 320px;
-    padding: 5px;
     margin: 10px;
     border: 1.5px solid #c0c0c0;
     border-radius: 5px;
@@ -219,7 +209,6 @@ span.psw {
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(2,23,62,0.9); /* Black w/ opacity */
   padding-top: 60px;
 }
@@ -279,10 +268,6 @@ span.psw {
      width: 100%;
   }
 }
-
-
-  
- 
 /*
     ========================================
     main / hero
@@ -292,50 +277,53 @@ span.psw {
     display: flex;
     flex-direction: row;
     padding:5px;
-    flex-wrap: nowrap;
-    
-    
+    flex-wrap: nowrap;    
 }
 
 .flex-banner {
+    display: flex;
+    flex-direction: column;
     flex-grow: 6;
-    text-align: left;
     padding: 8px;
-    text-align: left;
     line-height: 30px;
     color: #F2E3D5;
+    text-align: center;
+    margin: 70px 10px;
+    
 }
 .flex-banner h1 {
     font-size: 40px;
     font-weight: 300px;
     padding-bottom: 10px;
     margin-bottom: 5px;
-    color: rgb(129, 158, 2)
+    color: rgb(253, 208, 9);
+    
 }
 .flex-banner p {
     font-size: 20px;
     font-weight: 400;
-    color: #42B7DD;
-    
-    
+    color: rgb(68, 195, 238);  
 }
 .flex-banner h2 {
   font-size: 20px;
   font-weight: 400;
-  text-align: justify;
   color: #42B7DD;
 }
-.banner-link {
+.banner-text {
+  padding-bottom: 25px;
   margin: 0 auto;
 
 }
+.banner-link  {
+  margin: 0 auto;
+}
 .banner-btn {
-  font-size: 1.5em;
+    font-size: 1.5em;
     border: 0;
-    background: #679E02;
-    color: #F2FFB5;
+    background: rgb(253, 208, 9);
+    color: rgb(116, 114, 240);
     border-radius: 50px;
-    padding: 10px 15px 10px 15px;
+    padding: 8px 12px;
 }
 .flex-signup  {
     flex-grow: 4;
@@ -365,7 +353,7 @@ span.psw {
   }
   .input-field {
     height: 30px;
-    width: 320px;
+    width: 280px;
     padding: 5px;
     margin: 10px;
     border: 1.5px solid #c0c0c0;
@@ -375,7 +363,7 @@ span.psw {
   .submit {
     border-radius: 5px;
     vertical-align: middle;
-    background-color: green;
+    background-color: #679E02;
     color: #fff;
     cursor: pointer;
     display: block;
@@ -384,10 +372,9 @@ span.psw {
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    text-transform: uppercase;
     border: 1px solid #fff;
     padding: 10px 30px;
-    width: 338px;
+    width: 300px;
     font-size: 20px;
   }
  .sign-link {
