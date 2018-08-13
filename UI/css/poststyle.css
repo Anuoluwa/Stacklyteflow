@@ -60,12 +60,12 @@ body {
     overflow: hidden;
 }
 a {
-    color: #0051FF;
-    text-decoration: none;
-  }
-  a:hover {
-    color: #8458eb;
-  }
+  color: #2DCAFF;
+  text-decoration: none;
+}
+a:hover {
+  color: rgba(45,202,255,0.5);
+}
 
   /*
   ========================================
