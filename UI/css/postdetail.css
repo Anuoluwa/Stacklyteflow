@@ -151,6 +151,7 @@ ul {
   flex-direction: column;
   color: #B9C6CA;
 };
+
 .question-wrapper {
   display: flex;
   flex-direction: row;
@@ -257,7 +258,7 @@ footer {
     width: calc(100% - 80px);
     padding: 40px 40px;
     margin-top: 20px;
-    background-color: #072842;
+    background-color: rgba(2,23,62,0.5);
     overflow: hidden;
 }
 
