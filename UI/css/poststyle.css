@@ -225,6 +225,14 @@ color: #42B7DD;
     width: 100%;
   }
 }
+
+@media(max-width: 500px) {
+   
+}
+
+@media(max-width: 768px) {
+ 
+}
 /*
     ========================================
     Footer
