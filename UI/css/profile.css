@@ -82,31 +82,31 @@ header {
   box-shadow: 5px 10px 20px -20px rgba(85,172,238 ,1);
   
 }
+ul {
+padding: 0;
+list-style: none;
+}
+.nav-bar {
+display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+align-content: center;
+align-items: center;
+color: #42B7DD;
+}
 .logo {
   font-size: 50px;
-
 }
-
-ul {
-  padding: 0;
-  list-style: none;
-}
-
 .search-input {
   margin-left: auto;
-  margin-right: auto;
   padding-right: 35px;
+  padding-left: 5px;
+  flex-wrap: nowrap;
 } 
 
-.nav-bar {
-  display: flex;
-  align-items: center;
-  color: #42B7DD;
- 
-}
 .nav-bar li {
+  margin: 0 auto;
   cursor: pointer;
-  margin-right: 20px;
 }
 .nav-bar li:hover{
   color: rgba(85,172,238 ,1);
@@ -118,30 +118,23 @@ ul {
   background: #679E02;
   color: #F2FFB5;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .search-field {
-  height: 25px;
+  height: 28px;
   width: 450px;
-  padding: 5px;
-  margin: 10px;
   border: 1.5px solid #c0c0c0;
   border-radius: 5px;
-}
-
-.input-field {
-  height: 20px;
-  width: 320px;
-  padding: 5px;
-  margin: 10px;
-  border: 1.5px solid #c0c0c0;
-  border-radius: 5px;
+  padding:0 10px;
+  font-size: 16px;
+  flex: 1;
 }
 .nav-btn {
     padding: 10px;
+    cursor: pointer;
     
 }
- 
 /*
     ========================================
     main / hero
