@@ -1,6 +1,16 @@
-const express = require('express')
-const app = express()
+import dotenv from 'dotenv';
+import express from 'express';
+import App from './app';
 
-app.get('/', (req, res) => res.send('Hello World!'))
+dotenv.config();
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+const app = express();
+const port = process.env.PORT;
+
+app.use('/', App);
+
+app.listen(port, () => {
+  console.log(`App is running at http://localhost:${port}!`);
+});
+
+export default app;
