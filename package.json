@@ -26,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/Anuoluwa/LyteStackOverflow/issues"
   },
-  "homepage": "https://github.com/Anuoluwa/LyteStackOverflow#readme"
+  "homepage": "https://github.com/Anuoluwa/LyteStackOverflow#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
