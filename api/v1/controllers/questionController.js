@@ -1,9 +1,11 @@
-import questions from '../models/db';
+// import questions from '../models/db';
 
 export default class Questions {
-  static getAllQuestions(req, res) {
-    if (!questions) {
-      res.status(404).json({ message: 'No resource found' });
-    } else res.json(questions);
-  }
+  // static async AllQuestions(req, res) {
+  //   try {
+  //     return await res.json(questions);
+  //   } catch (err) {
+  //     res.status(404).json({ message: 'Resource not found!', error: err });
+  //   }
+  // }
 }

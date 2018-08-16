@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --watch server.js --exec babel-node -- server.js",
     "test": " mocha --require babel-register \" api/v1/tests/**/*.spec.js\" --reporter progress ",
-    "lint": " esw app.js server.js api/* --color",
+    "lint": " esw app.js server.js api/v1/* --color",
     "lint-watch": "npm run lint -- --watch"
   },
   "repository": {
