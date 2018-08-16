@@ -1,11 +1,22 @@
 // import express from 'express';
 import request from 'supertest';
-// import question from '../models/db';
+// import { expect } from 'chai';
+// import questions from '../models/db';
 import app from '../index';
-// import Question from '../controllers/questionController';
 
+
+// const api = 'localhost:3000/api/v1';
 
 describe('Integrationtesting with supertest for requestController', () => {
+  // describe('Integrationtesting with supertest for requestController', () => {
+  //   describe('GET /questions', () => {
+  //     it('respond with json', async () => {
+  //       const response = await api.get('/questions')
+  //         .set('Content-Type', 'application/json');
+  //       expect(response).to.have.status(200);
+  //     });
+  //   });
+  // });
   describe('GET /questions', () => {
     it('respond with json', (done) => {
       request(app)
