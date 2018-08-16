@@ -1,4 +1,4 @@
-import "babel-polyfill";
+import 'babel-polyfill';
 import routes from './routes/index';
 
 
