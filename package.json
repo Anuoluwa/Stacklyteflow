@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --watch server.js --exec babel-node -- server.js",
     "test": " mocha --require babel-register \" api/v1/tests/**/*.spec.js\" --reporter progress ",
-    "lint": " esw app.js server.js api/* --color",
+    "lint": " esw app.js server.js api/v1/* --color",
     "lint-watch": "npm run lint -- --watch"
   },
   "repository": {
@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/Anuoluwa/LyteStackOverflow#readme",
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-api-versioning": "^2.0.0"
