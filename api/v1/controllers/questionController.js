@@ -5,19 +5,10 @@ export default class Questions {
     try {
       return await res.json(questions);
     } catch (err) {
+      await !questions;
       res.status(404).json({ message: 'Resource not found!', error: err });
     }
   }
-
-  // static getQuestion(req, res) {
-  //   const questionId = req.params.id;
-  //   /* eslint-disable */
-  //   const questionItem = questions.filter(question => question.id == questionId)[0];
-  //   /* eslint-enable */
-  //   if (!questions) {
-  //     res.sendStatus(404).json({ message: 'No question found' });
-  //   }
-  // }
 
   static async GetOneQuestion(req, res) {
     try {

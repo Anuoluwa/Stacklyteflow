@@ -16,7 +16,7 @@ const questions = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     date: '15-08-2018',
     title: 'Array not working with map() in React',
     body: 'How to use map() for array in Js, python, Angular etc',
