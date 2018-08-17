@@ -21,4 +21,21 @@ export default class Questions {
       res.sendStatus(404).json({ message: err });
     }
   }
+
+  static setQuestion(req, res) {
+    // async or promise later
+    const question = {
+      id: questions.length + 1,
+      date: req.body.date,
+      title: req.body.title,
+      body: req.body.body,
+      answer: req.body.answer,
+    };
+    questions.push(question);
+    if (question) {
+      res.status(201).json(question);
+    } else {
+      res.status(404).json({ message: 'Resource not created!' });
+    }
+  }
 }
