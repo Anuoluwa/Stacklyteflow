@@ -4,7 +4,10 @@ import Question from '../controllers/questionController';
 
 const router = express.Router();
 
-router.get('/anu', (req, res) => res.send('Hello World! we are live'));
-router.get('/questions', Question.AllQuestions);
+router.get('/', (req, res) => res.send('Success, Welcome to v1!'));
+router.get('/questions', Question.GetAllQuestions);
+router.get('/questions/:id', Question.GetOneQuestion);
+// router.post('/questions', Question.GetOneQuestions);
+// router.post('/questions/questions/:id/answers', Question.GetOneQuestions);
 
 export default router;
