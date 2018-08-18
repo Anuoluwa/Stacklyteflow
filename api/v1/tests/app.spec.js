@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
-// import should from 'chai/should'
 
 
 describe('Test suite for question controller', () => {

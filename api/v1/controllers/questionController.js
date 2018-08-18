@@ -1,4 +1,4 @@
-import questions from '../models/db';
+import questions from '../models/questions';
 
 export default class Questions {
   static async GetAllQuestions(req, res) {
