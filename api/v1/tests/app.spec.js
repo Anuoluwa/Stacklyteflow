@@ -47,12 +47,22 @@ describe('Test suite for questions endpoint controller', () => {
           done();
         });
     });
+    it('should be an object with keys and values', (done) => {
+      request(app)
+        .get('/api/v1/question/1')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.be.a('object');
+          done();
+        });
+    });
   });
   describe('POST /questions/, to post single question resource', () => {
     describe('POST /questions', () => {
       it('should be an object with keys and values', (done) => {
         request(app)
-          .get('/api/v1/question/1')
+          .post('/api/v1/question/')
           .set('Accept', 'application/json')
           .expect(200)
           .send({
