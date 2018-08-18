@@ -2,11 +2,20 @@ import 'babel-polyfill';
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
-// import should from 'chai/should'
+import questions from '../models/questions';
 
 
-describe('Test suite for question controller', () => {
+describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
+    it('should return a 200 succcess', (done) => {
+      request(app)
+        .get('/api/v1/questions')
+        .end((err, res) => {
+          expect(res.status).to.equal(200);
+          expect(res.body.id).to.not.equal(null);
+          done();
+        });
+    });
     it('respond with json', (done) => {
       request(app)
         .get('/api/v1/questions')
@@ -14,11 +23,14 @@ describe('Test suite for question controller', () => {
         .expect(200);
       done();
     });
-    it('respond with json', (done) => {
+    it('should return 200', (done) => {
       request(app)
         .get('/api/v1/questions')
-        .set('Content-Type', 'application/json');
-      done();
+        .end((error, response) => {
+          expect(response.status).to.equal(200);
+          expect(questions).to.be.an('array');
+          done();
+        });
     });
   });
   describe('GET /questions/:id, for single question resource', () => {
@@ -37,7 +49,7 @@ describe('Test suite for question controller', () => {
     });
   });
   describe('POST /questions/, to post single question resource', () => {
-    describe('POST /users', () => {
+    describe('POST /questions', () => {
       it('should be an object with keys and values', (done) => {
         request(app)
           .get('/api/v1/question/1')

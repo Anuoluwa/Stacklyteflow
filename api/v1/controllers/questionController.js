@@ -1,4 +1,6 @@
-import questions from '../models/db';
+import questions from '../models/questions';
+
+const answers = [];
 
 export default class Questions {
   static async GetAllQuestions(req, res) {
@@ -27,23 +29,27 @@ export default class Questions {
   static setQuestion(req, res) {
     const question = {
       id: questions.length + 1,
-      date: req.body.date,
       title: req.body.title,
       body: req.body.body,
     };
+    // if (typeof req.body.title !== 'undefined' && typeof req.body.title !== 'undefined') {
+    //   res.status(404).json({ message: 'Not created, No empty values' });
+    // }
     questions.push(question);
-    res.status(201).json({ questions });
+    res.status(201).json({ message: 'Your question was created successfully', data: questions });
   }
 
-  // static async setQuestions(req, res) {
-  //   const question = {
-  //     id: questions.length + 1,
-  //     date: req.body.date,
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     answer: req.body.answer,
-  //   };
-  //   const result = await questions.push(question);
-  //   res.status(201).json(result);
-  // }
+  static setAnswer(req, res) {
+    // const questionId = req.params.id;
+    const answer = {
+      id: answers.length + 1,
+      title: req.body.title,
+    };
+    /* eslint-disable */
+    // const question = questions.filter(r => r.id == questionId)[0];
+    /* eslint-enable */
+    // const arrIndex = questions.indexOf(question);
+    answers.push(answer);
+    res.status(200).json({ data: answers, data2: questions });
+  }
 }
