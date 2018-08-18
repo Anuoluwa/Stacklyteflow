@@ -32,6 +32,6 @@ export default class Questions {
       body: req.body.body,
     };
     questions.push(question);
-    res.status(201).json({ questions });
+    res.status(201).json({ message: 'Question was created successfully', data: questions });
   }
 }
