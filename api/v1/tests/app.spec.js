@@ -37,10 +37,10 @@ describe('Test suite for question controller', () => {
     });
   });
   describe('POST /questions/, to post single question resource', () => {
-    describe('POST /users', () => {
+    describe('POST /questions', () => {
       it('should be an object with keys and values', (done) => {
         request(app)
-          .get('/api/v1/question/1')
+          .post('/api/v1/question/')
           .set('Accept', 'application/json')
           .expect(200)
           .send({
