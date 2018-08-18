@@ -1,4 +1,4 @@
-import questions from '../models/db';
+import questions from '../models/questions';
 
 export default class Questions {
   static async GetAllQuestions(req, res) {
@@ -32,18 +32,6 @@ export default class Questions {
       body: req.body.body,
     };
     questions.push(question);
-    res.status(201).json({ questions });
+    res.status(201).json({ message: 'Question was created successfully', data: questions });
   }
-
-  // static async setQuestions(req, res) {
-  //   const question = {
-  //     id: questions.length + 1,
-  //     date: req.body.date,
-  //     title: req.body.title,
-  //     body: req.body.body,
-  //     answer: req.body.answer,
-  //   };
-  //   const result = await questions.push(question);
-  //   res.status(201).json(result);
-  // }
 }

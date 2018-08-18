@@ -2,7 +2,6 @@ import 'babel-polyfill';
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
-// import should from 'chai/should'
 
 
 describe('Test suite for question controller', () => {
@@ -14,11 +13,13 @@ describe('Test suite for question controller', () => {
         .expect(200);
       done();
     });
-    it('respond with json', (done) => {
+    it('should return an 200 for object', (done) => {
       request(app)
         .get('/api/v1/questions')
-        .set('Content-Type', 'application/json');
-      done();
+        .end((error, res) => {
+          expect(res.status).to.eql(200);
+          done();
+        });
     });
   });
   describe('GET /questions/:id, for single question resource', () => {
@@ -37,19 +38,31 @@ describe('Test suite for question controller', () => {
     });
   });
   describe('POST /questions/, to post single question resource', () => {
-    describe('POST /users', () => {
+    describe('POST /questions', () => {
+      it('responds with json', (done) => {
+        request(app)
+          .post('/questions')
+          .send({ title: 'qwerty', body: 'qwerty' })
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err) => {
+            if (err) return done(err);
+            done();
+          });
+      });
       it('should be an object with keys and values', (done) => {
         request(app)
-          .get('/api/v1/question/1')
+          .post('/api/v1/question/')
           .set('Accept', 'application/json')
           .expect(200)
           .send({
+            id: '1',
+            title: 'This is a test',
+            body: 'this is a bosy',
           })
           .end((err, res) => {
-            expect(res.body.id).to.equal(undefined);
-            expect(res.body.title).to.equal(undefined);
-            expect(res.body.body).to.equal(undefined);
-            expect(res.body.answers).to.equal(undefined);
+            expect(res.err).to.be.not.eql(null);
+            expect(res.status).to.be.not.eql(null);
             done();
           });
       });
