@@ -59,10 +59,10 @@ describe('Test suite for question controller', () => {
             id: '1',
             title: 'This is a test',
             body: 'this is a bosy',
-            answer: ['one', 'two'],
           })
           .end((err, res) => {
-            expect(res.status).to.deep.equal(200);
+            expect(res.err).to.be.not.eql(null);
+            expect(res.status).to.be.not.eql(null);
             done();
           });
       });
