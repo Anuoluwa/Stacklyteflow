@@ -1,10 +1,18 @@
+import 'babel-polyfill';
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
+// import should from 'chai/should'
 
 
-describe('Integrationtesting with supertest for requestController', () => {
+describe('Test suite for question controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
+    it('get all question and respond with json', async () => {
+      request(app);
+      const response = await app.get('/api/v1/questions')
+        .set('Content-Type', 'application/json');
+      expect(response).to.have.status(200);
+    });
     it('respond with json', (done) => {
       request(app)
         .get('/api/v1/questions')
