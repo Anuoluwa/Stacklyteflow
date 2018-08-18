@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/postdetail.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
+    <title>StackOverflow-Lite Clone</title>
+</head>
+
+<body>
+        <header class="">
+                <div class="container">
+                    <nav class="nav-header">
+                        <ul class="nav-bar">
+                            <li class="logo">
+                                <a>
+                                    <em>Lite</em>stack</a>
+                            </li>
+                            <li>
+                                <li class="search-input">
+                                    <form action="" method="">
+                                        <input class="search-field" placeholder="Search this platform" />
+                                        <i class="fa fa-search fa-lg"></i>
+                                    </form>
+                                </li>
+                                <li class="li-btn">
+                                    <button class="nav-btn">Sign Out</button>
+                                </li>
+                                <li class="li-btn">
+                                        <a href="http://"><i class="fas fa-bell fa-2x"></i></i></a>
+                                    </li>
+                                <li class="li-btn">
+                                    <a href="http://"><i class="far fa-user-circle fa-2x"></i></a>
+                                </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+
+    <main class="container">
+        <div class="question-lists">
+            <div class="question-wrapper 1 container">
+                <div class="date">
+                    <span>20th August, 2018</span>
+                </div>
+                <div class="postdetails">
+                    <h2>
+                        Jest SecurityError: localStorage is not available for opaque origins
+                    </h2>
+                    <p>Amending the array for every single use of the function is not optimal for the amount of data that I
+                        will be processing, and I'd like to find some way to have a name definition that automatically populates
+                        the arrays (perhaps by searching the I column for a specific value) or VBA function that populates
+                        the row numbers based on input cells. I have tried a few different solutions based on searching for
+                        various functions, but I haven't been able to come up with a winning combination. Is there a better
+                        way to programatically populate the array values when the length is different for each function run?
+                    </p>
+                    <small>By Anuoluwapo Apiti</small>
+                    <span>Answers 100 </span>
+                </div>
+            </div>
+            <div>
+                <hr>
+            </div>
+            <div class="ans-form container">
+                <form id="ans-form">
+                    <div class="rowTab">
+                        <div class="rightTab">
+                            <textarea rows="8" cols="80" autofocus placeholder="Reply to the question">
+                            </textarea>
+                        </div>
+                    </div>
+                    <button id="submit" class="submit">Post Answer</button>
+                </form>
+            </div>
+
+            <div class="question-wrapper 3 container">
+                <div class="postdetails">
+                    <p>I have a table of events. Each events has a date. My API requires that I return at least X events before/after
+                        a certain date, but I must return all the events for each date. If I did this in code I'd do something
+                        like group the events by date and sorted ascending/descending then take enough days such that I have
+                        at least 50 events. This is what I have so far: .... FROM "events" WHERE (date in ( SELECT DISTINCT
+                        date FROM events WHERE DATE
+                        2 018-08-12 ORDER BY date DESC LIMIT 50) However it only returns a 16 events even though there are many more in the DB.
+                            I think that for this to work I need to do something like getting the count of events per day and
+                            then getting enough days such that the sum of events>= X (eg. 50) and then return the actual events. Is that how to do it? And how should such a query
+                            be written correctly?
+                    </p>
+                    <small>By Anuoluwapo Apiti</small>
+                    <span>Comment</span>
+                </div>
+            </div>
+            <div class="question-wrapper 4 container">
+                <div class="postdetails">
+                    <p>After having implemented some logic with 32-bit bit vectors using uint, I found that there already exists
+                        a BitVector32 inside System.Collections.Specialized. The thing is, it uses int for its API and does
+                        casts to uint internally, along with some other checking in other cases. Is there any case when one
+                        could run into issues combining these three options? Are are they completely interchangable apart
+                        from not having a subscript API on int/uint?
+                    </p>
+                    <small>By Anuoluwapo Apiti</small>
+                    <span>Comment</span>
+                </div>
+            </div>
+            <div class="question-wrapper 5 container">
+                <div class="postdetails ">
+                    <p>After having implemented some logic with 32-bit bit vectors using uint, I found that there already exists
+                        a BitVector32 inside System.Collections.Specialized. The thing is, it uses int for its API and does
+                        casts to uint internally, along with some other checking in other cases. Is there any case when one
+                        could run into issues combining these three options? Are are they completely interchangable apart
+                        from not having a subscript API on int/uint?
+                    </p>
+                    <small>By Anuoluwapo Apiti</small>
+                    <span>Comment</span>
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer>
+
+        <small>&copy; 2018 LITESTACK</small>
+
+        <nav>
+            <ul class="footer-main">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="#">About</a>
+                </li>
+
+                <li>
+                    <a href="adminSignIn.html">Community</a>
+                </li>
+
+                <li>
+                    <a href="#">Support</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+
+</html>
