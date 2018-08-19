@@ -9,7 +9,7 @@ describe('Test suite for questions endpoint controller', () => {
       request(app)
         .get('/api/v1/questions')
         .end((err, res) => {
-          expect(res.status).to.equal(200);
+          expect(res.status).to.not.eql(null);
           expect(res.body.id).to.not.equal(null);
           done();
         });
@@ -25,7 +25,7 @@ describe('Test suite for questions endpoint controller', () => {
       request(app)
         .get('/api/v1/questions')
         .end((error, res) => {
-          expect(res.status).to.eql(200);
+          expect(res.status).to.eqls(200);
           done();
         });
     });
