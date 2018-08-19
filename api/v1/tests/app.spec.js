@@ -3,9 +3,17 @@ import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
 
-
-describe('Test suite for question controller', () => {
+describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
+    it('should return a 200 succcess', (done) => {
+      request(app)
+        .get('/api/v1/questions')
+        .end((err, res) => {
+          expect(res.status).to.not.eql(null);
+          expect(res.body.id).to.not.equal(null);
+          done();
+        });
+    });
     it('respond with json', (done) => {
       request(app)
         .get('/api/v1/questions')
@@ -17,7 +25,7 @@ describe('Test suite for question controller', () => {
       request(app)
         .get('/api/v1/questions')
         .end((error, res) => {
-          expect(res.status).to.eql(200);
+          expect(res.status).to.eqls(200);
           done();
         });
     });
@@ -33,6 +41,16 @@ describe('Test suite for question controller', () => {
           expect(res.body.title).to.not.equal(null);
           expect(res.body.body).to.not.equal(null);
           expect(res.body.answers).to.not.equal(null);
+          done();
+        });
+    });
+    it('should be an object with keys and values', (done) => {
+      request(app)
+        .get('/api/v1/question/1')
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+          expect(res.body).to.be.a('object');
           done();
         });
     });

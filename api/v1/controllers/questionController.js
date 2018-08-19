@@ -27,7 +27,6 @@ export default class Questions {
   static setQuestion(req, res) {
     const question = {
       id: questions.length + 1,
-      date: req.body.date,
       title: req.body.title,
       body: req.body.body,
     };
