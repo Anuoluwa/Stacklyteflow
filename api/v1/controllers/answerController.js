@@ -9,6 +9,7 @@ export default class Answers {
     const { answer } = req.body;
     if (questionKey < 1) {
       res.status(404).json({
+        status: 404,
         message: 'Resource not found',
       });
     }
@@ -19,6 +20,7 @@ export default class Answers {
     };
     answers.push(newAnswer);
     return res.status(201).json({
+      status: 200,
       message: 'Answer created successfully',
       data: newAnswer,
       AllAnswers: answers,

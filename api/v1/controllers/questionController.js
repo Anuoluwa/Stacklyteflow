@@ -1,11 +1,12 @@
 import questions from '../models/questions';
 
+
 export default class Questions {
   static async GetAllQuestions(req, res) {
     try {
       return await res.json(questions);
     } catch (err) {
-      res.status(404).json({ err });
+      res.status(404).json({ message: 'Question not found!', err });
     }
   }
 
@@ -19,7 +20,7 @@ export default class Questions {
       }
       return res.status(200).json(questionItem);
     } catch (err) {
-      res.status(404).json({ message: err });
+      res.status(500).json({ message: 'Sorry about that, not available', err });
     }
   }
 
