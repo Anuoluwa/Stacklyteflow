@@ -3,6 +3,32 @@ import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
 
+
+// server testing
+describe('API Test with SuperTest', () => {
+  it("GET /api should return 'test'", (done) => {
+    request(app)
+      .get('/api/v1')
+      .expect(200, 'Success!, Welcome to LiteStack API v1!')
+      .expect('Content-Type', 'text/html; charset=utf-8')
+      .expect('X-Powered-By', 'Express')
+      .end((err) => {
+        if (err) { return done(err); }
+        done();
+      });
+  });
+
+  it('GET /apinowhere should return 404', (done) => {
+    request(app)
+      .get('/apinowhere')
+      .expect(200)
+      .end((err) => {
+        if (err) { return done(err); }
+        done();
+      });
+  });
+});
+// test suite for controllers
 describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
     it('should return a 200 succcess', (done) => {
