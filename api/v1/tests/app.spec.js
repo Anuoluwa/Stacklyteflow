@@ -104,5 +104,47 @@ describe('Test suite for questions endpoint controller', () => {
           });
       });
     });
+    // fdf
+    describe('POST /questions/:id/answer, to post answer', () => {
+      it('responds with json', (done) => {
+        request(app)
+          .post('/api/v1/questions')
+          .send({
+            id: '1',
+            answer: 'This is a test',
+          })
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err, res) => {
+            expect(res.body.status).to.not.equal(null);
+            expect(res.body.err).to.not.equal(null);
+            done();
+          });
+      });
+      it('responds with json', (done) => {
+        request(app)
+          .post('/api/v1/questions')
+          .send({
+            id: '1',
+            answer: 'This is a test',
+          })
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err, res) => {
+            expect(res.body.answer).to.not.equal(null);
+            done();
+          });
+      });
+      it('should be an object with keys and values', (done) => {
+        request(app)
+          .post('/api/v1/question/1')
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err, res) => {
+            expect(res.body).to.be.a('object');
+            done();
+          });
+      });
+    });
   });
 });
