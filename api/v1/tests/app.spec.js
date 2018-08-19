@@ -2,8 +2,6 @@ import 'babel-polyfill';
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
-import questions from '../models/questions';
-
 
 describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
@@ -23,12 +21,11 @@ describe('Test suite for questions endpoint controller', () => {
         .expect(200);
       done();
     });
-    it('should return 200', (done) => {
+    it('should return an 200 for object', (done) => {
       request(app)
         .get('/api/v1/questions')
-        .end((error, response) => {
-          expect(response.status).to.equal(200);
-          expect(questions).to.be.an('array');
+        .end((error, res) => {
+          expect(res.status).to.eql(200);
           done();
         });
     });
@@ -60,18 +57,30 @@ describe('Test suite for questions endpoint controller', () => {
   });
   describe('POST /questions/, to post single question resource', () => {
     describe('POST /questions', () => {
+      it('responds with json', (done) => {
+        request(app)
+          .post('/questions')
+          .send({ title: 'qwerty', body: 'qwerty' })
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err) => {
+            if (err) return done(err);
+            done();
+          });
+      });
       it('should be an object with keys and values', (done) => {
         request(app)
           .post('/api/v1/question/')
           .set('Accept', 'application/json')
           .expect(200)
           .send({
+            id: '1',
+            title: 'This is a test',
+            body: 'this is a bosy',
           })
           .end((err, res) => {
-            expect(res.body.id).to.equal(undefined);
-            expect(res.body.title).to.equal(undefined);
-            expect(res.body.body).to.equal(undefined);
-            expect(res.body.answers).to.equal(undefined);
+            expect(res.err).to.be.not.eql(null);
+            expect(res.status).to.be.not.eql(null);
             done();
           });
       });
