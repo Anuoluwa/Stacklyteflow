@@ -104,3 +104,7 @@ answer.
 * After installing as shown above
 * Navigate to [localhost:3000](http://localhost:4000/) in
   [Postman](https://getpostman.com/) to access the application
+
+MIT License
+
+Copyright (c) 2018 Anuoluwapo APITI
