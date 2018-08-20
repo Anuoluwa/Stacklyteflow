@@ -1,4 +1,4 @@
-# LyteStackOverflow  [![Build Status](https://travis-ci.org/Anuoluwa/LyteStackOverflow.svg?branch=master)](https://travis-ci.org/Anuoluwa/LyteStackOverflow)
+# LyteStackOverflow  [![Build Status](https://travis-ci.org/Anuoluwa/LyteStackOverflow.svg?branch=develop-api-v1)](https://travis-ci.org/Anuoluwa/LyteStackOverflow)
 
 ## Project Overview
 StackOverflow-lite clone is a platform where people can ask questions and provide answers.
