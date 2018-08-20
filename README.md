@@ -1,4 +1,4 @@
-# Stacklyteflow
+# LyteStackOverflow
 
 ## Project Overview
 StackOverflow-lite clone is a platform where people can ask questions and provide answers.
