@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
 import express from 'express';
-import App from './app';
+import App from './Versioning';
 
 dotenv.config();
 
