@@ -52,7 +52,7 @@ body {
     font: 16px/1.5 Roboto, Lato, Raleway, sans-serif;
     line-height: 1;
     color: whitesmoke;
-    background-color: #071826;
+    background-color: rgba(2,23,62,0.9);
 }
 .container {
     width: 80%;
