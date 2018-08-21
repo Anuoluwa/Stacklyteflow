@@ -1,24 +1,22 @@
-import 'babel-polyfill';
 import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
 
 
 // server testing
-describe('API Test with SuperTest', () => {
-  it("GET /api should return 'test'", (done) => {
+describe('', () => {
+  it("GET /api should return 'wlecome to LiteStack API v1!'", (done) => {
     request(app)
-      .get('/api/v1')
+      .get('/api/v1/')
       .expect(200, 'Success!, Welcome to LiteStack API v1!')
       .expect('Content-Type', 'text/html; charset=utf-8')
-      .expect('X-Powered-By', 'Express')
       .end((err) => {
         if (err) { return done(err); }
         done();
       });
   });
 
-  it('GET /apinowhere should return 404', (done) => {
+  it('GET /api/v1/nowhere should return 404', (done) => {
     request(app)
       .get('/apinowhere')
       .expect(200)
@@ -47,11 +45,11 @@ describe('Test suite for questions endpoint controller', () => {
         .expect(200);
       done();
     });
-    it('should return an 200 for object', (done) => {
+    it('should return 200 for object', (done) => {
       request(app)
         .get('/api/v1/questions')
         .end((error, res) => {
-          expect(res.status).to.eqls(200);
+          expect(res.status).to.eql(200);
           done();
         });
     });
