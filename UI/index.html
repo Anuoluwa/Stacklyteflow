@@ -14,27 +14,21 @@
 <body>
     <header class="">
         <div class="container">
-            <nav class="nav-header">
-                <ul class="nav-bar">
-                    <li class="logo">
+            <div class="nav-header">
+                <div class="nav-bar">
+                    <div class="logo">
                         <a>
                             Litestack
                         </a>
-                    </li>
-                    <li class="search-input">
-                        <form>
+                    </div>
+                    <div class="search">
+                        <form class="search-input">
                             <input class="search-field" placeholder="Search Litestack......" />
                             <i class="fa fa-search fa-lg"></i>
                         </form>
-                    </li>
-                    <li class="li-btn">
-                        <button id="signin" class="nav-btn signin" onclick="document.getElementById('signinform').style.display='block'" style="width:auto;">Sign In</button>
-                    </li>
-                    <li class="li-btn">
-                        <button class="nav-btn" onclick="document.getElementById('signupform').style.display='block'" style="width:auto;">Sign Up</button>
-                    </li>
-                </ul>
-            </nav>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     <!-- Modal  for both signup and sign in-->
@@ -76,7 +70,7 @@
         </div>
         <!-- signup-->
         <div id="signupform" class="modal">
-            <form class="modal-content animate" action="profile.html">
+            <form class="modal-content animate" action="signup.html">
                 <div class="imgcontainer">
                     <span onclick="document.getElementById('signupform').style.display='none'" class="close" title="Close Modal">&times;</span>
                 </div>
@@ -117,7 +111,37 @@
                 </div>
             </form>
         </div>
+        <!-- ask question  modal -->
+        <div id="questionform" class="modalQuestion">
 
+            <form class="modal-content-question animate" action="">
+                <div class="imgcontainerquestion">
+                    <span onclick="document.getElementById('questionform').style.display='none'" class="close" title="Close Modal">&times;</span>
+                </div>
+                <div class="question-info">
+                    <h2>You ask can questions or post links</h2>
+                </div>
+
+                <div class="modal-container-question">
+                    <div class="modalTabQuestion">
+                        <label id="title-label" for="title">
+                            <strong>*Title:</strong>
+                    </div>
+                    <div class="rightmodalTabQuestion">
+                        <input autofocus type="text" name="title" id="title" maxlength="100" placeholder="Enter your title">
+                    </div>
+
+                    <div class="modalTabQuestion">
+                        <label id="body-label" for="text">
+                            <strong>*Text:</strong>
+                    </div>
+                    <div class="rightmodalTabquestion">
+                        <textarea rows="10" cols="33" autofocus placeholder="Enter your text" required></textarea>
+                    </div>
+                    <button id="submit-question" class="submit-question" type="submit">Post</button>
+                </div>
+            </form>
+        </div>
     </section>
     <!-- main banner and call to action -->
     <main class="container">
@@ -137,14 +161,14 @@
                 <div class="flex-signup">
                     <div class="inner">
                         <form id="signup-form">
-                            <div class="rowTab">
+                            <!-- <div class="rowTab">
                                 <div class="labels">
                                     <label id="username-label" for="username">Username:</label>
                                 </div>
                                 <div class="rightTab">
                                     <input autofocus type="text" name="username" id="username" minlength="4" maxlength="10" class="input-field" placeholder="Enter your username">
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="rowTab">
                                 <div class="labels">
                                     <label id="email-label" for="email">Email:</label>
@@ -163,12 +187,12 @@
                                         required>
                                 </div>
                             </div>
-                            <button id="submit" class="submit" type="submit">Sign Up</button>
+                            <button id="submit" class="submit" type="submit">Sign In</button>
                         </form>
                         <hr>
-                        <small class="sign-link">Already have an account?
+                        <small class="sign-link">Don't have an account?
                             <strong>
-                                <a href=".signin">Sign In</a>
+                                <a href="signupform">Sign Up</a>
                             </strong>
                         </small>
                     </div>
@@ -195,9 +219,9 @@
                     </a>
                 </div>
                 <div class="ask-question">
-                    <a href="post.html " class="ask">
+                    <a class="ask">
                         <div class="question nav">
-                            <button type="button" class="thread-btn">Ask Question</button>
+                            <button type="button" class="thread-btn" onclick="document.getElementById('questionform').style.display='block'" style="width:auto;">Ask Question</button>
                         </div>
                     </a>
                 </div>
@@ -224,7 +248,7 @@
                                 <span class="time">
                                     <strong>1</strong> hour ago</span>
                                 <span class="answers">
-                                    <strong>110</strong> Answers</span>
+                                    <strong>59</strong> Answers</span>
                                 <span class="comments">
                                     <strong>100</strong> Comments</span>
                             </div>
@@ -247,7 +271,7 @@
                                 <span class="time">
                                     <strong>7 </strong> hour ago</span>
                                 <span class="answers">
-                                    <strong>80</strong> Answers</span>
+                                    <strong>49</strong> Answers</span>
                                 <span class="comments">
                                     <strong>60</strong> Comments</span>
                             </div>
@@ -270,7 +294,7 @@
                                 <span class="time">
                                     <strong>1</strong> hour ago</span>
                                 <span class="answers">
-                                    <strong>110</strong> Answers</span>
+                                    <strong>29</strong> Answers</span>
                                 <span class="comments">
                                     <strong>100</strong> Comments</span>
                             </div>
@@ -293,7 +317,7 @@
                                 <span class="time">
                                     <strong>1</strong> hour ago</span>
                                 <span class="answers">
-                                    <strong>110</strong> Answers</span>
+                                    <strong>290</strong> Answers</span>
                                 <span class="comments">
                                     <strong>100</strong> Comments</span>
                             </div>
@@ -316,7 +340,7 @@
                                 <span class="time">
                                     <strong>1</strong> hour ago</span>
                                 <span class="answers">
-                                    <strong>110</strong> Answers</span>
+                                    <strong>356</strong> Answers</span>
                                 <span class="comments">
                                     <strong>100</strong> Comments</span>
                             </div>
@@ -330,22 +354,15 @@
     <div>
         <footer>
 
-            <small>&copy; 2018 LITESTACK</small>
+
 
             <nav>
                 <ul class="footer-main">
 
-
                     <li>
-                        <a href="#about">About</a>
-                    </li>
-
-                    <li>
-                        <a href="#header">Community</a>
-                    </li>
-
-                    <li>
-                        <a href="#">Support</a>
+                        <a href="#about">
+                            <small>&copy; 2018 LITESTACK</small>
+                        </a>
                     </li>
                 </ul>
             </nav>
