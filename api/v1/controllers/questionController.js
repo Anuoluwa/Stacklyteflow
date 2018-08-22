@@ -16,7 +16,7 @@ export default class Questions {
     try {
       const questionId = await req.params.id;
       const questionItem = await questions
-      .filter(question => question.id == questionId)[0]; /* eslint-disable-line */
+        .filter(question => question.id == questionId)[0];
       if (typeof questionItem === 'undefined') {
         res.status(404).json({ message: 'Question does not exist!' });
       }
