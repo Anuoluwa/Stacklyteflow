@@ -3,7 +3,7 @@ import request from 'supertest';
 import app from '../../../server';
 
 
-// server testing
+// This is to server testing
 describe('Server ', () => {
   it("should return 'wlecome to LiteStack API v1!'", () => {
     request(app)
