@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import express from 'express';
 import Question from '../controllers/questionController';
 import Answer from '../controllers/answerController';
