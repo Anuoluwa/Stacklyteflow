@@ -1,5 +1,4 @@
 import pool from '../config/config';
-/** for database testing */
 export default class Questions {
   static GetAllQuestions(req, res) {
     pool.query('SELECT * FROM users', (err, response) => {
