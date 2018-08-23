@@ -7,20 +7,20 @@ import Auth from '../auth/authController';
 const router = express.Router();
 
 /**
- * @version v2
+ * @ v2
  * with persistence database
  * welcome message
  */
 
-router.get('/', (req, res) => res.send('Successful!, Welcome to LiteStack API v2!'));
+router.get('/', (req, res) => res.send({ message: 'Successful!, Welcome to LiteStack API v2!' }));
 
 /**
- * @router for questions authentication controller
+ *  for questions authentication controller
  *
  *
  */
-router.post('auth/signup', Auth.signUp);
-router.post('auth/login', Auth.login);
+router.post('/auth/signup', Auth.signUp);
+// router.post('auth/login', Auth.login);
 
 /** @router for questions controller */
 
