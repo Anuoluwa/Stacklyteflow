@@ -1,4 +1,3 @@
-import 'babel-polyfill';
 import express from 'express';
 import Question from '../controllers/questionController';
 import Answer from '../controllers/answerController';
@@ -8,7 +7,7 @@ const { check } = require('express-validator/check');
 
 const router = express.Router();
 
-router.get('/', (req, res) => res.send('Success!, Welcome to LiteStack API v1!'));
+router.get('/', (req, res) => res.send('Successful!, Welcome to LiteStack API v2!'));
 router.get('/questions', Question.GetAllQuestions);
 router.get('/questions/:id', Question.GetOneQuestion);
 router.post('/questions/:id/answer', validateAnswer, Answer.setAnswer);
