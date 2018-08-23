@@ -6,10 +6,10 @@ import pool from '../config/config';
 export default class Auth {
 /**
  * @static
- * @param {request} obj request-response cycle
- * @param {response} obj request-response cycle
+ * @param {req} obj request-response cycle
+ * @param {res} obj request-response cycle
  * @return sign up details if response=200
- * @return statuscode 404 if email and username are taken
+ * @return statuscode 404 if email and username don not exixts
  *
  * */
   static signUp(req, res) {
