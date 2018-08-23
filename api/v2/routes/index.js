@@ -20,7 +20,7 @@ router.get('/', (req, res) => res.send({ message: 'Successful!, Welcome to LiteS
  *
  */
 router.post('/auth/signup', Auth.signUp);
-// router.post('auth/login', Auth.login);
+router.post('/auth/login', Auth.login);
 
 /** @router for questions controller */
 
