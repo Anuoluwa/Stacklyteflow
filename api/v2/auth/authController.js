@@ -9,7 +9,7 @@ export default class Auth {
  * @param {req} obj request-response cycle
  * @param {res} obj request-response cycle
  * @return sign up details if response=200
- * @return statuscode 404 if email and username don not exixts
+ * @return statuscode 404 if email and username do not exists
  *
  * */
   static signUp(req, res) {
