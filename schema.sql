@@ -36,4 +36,3 @@ CREATE TABLE users (
   CONSTRAINT unique_data UNIQUE (email),
   created_at TIMESTAMPTZ DEFAULT Now()
 );
-No rows returned

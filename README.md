@@ -70,7 +70,7 @@ answer.
 
 <table>
 
-<tr><th>VERB</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
+<tr><th>HTTP METHOD</th><th>ENDPOINT</th><th>FUNCTIONALITY</th></tr>
 
 <tr><td>GET</td> <td>api/v1/questions</td> <td>Get All Questions</td></tr>
 

@@ -2,7 +2,6 @@ import questions from '../models/questions';
 
 const { validationResult } = require('express-validator/check');
 
-
 export default class Questions {
   static async GetAllQuestions(req, res) {
     try {

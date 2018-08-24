@@ -14,9 +14,6 @@ export default class Auth {
  * */
   static signUp(req, res) {
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-    if (typeof hashedPassword !== 'string') {
-      res.json({ message: 'Invalid password..password should be a string' });
-    }
     const sql = {
       text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
       values: [req.body.username, req.body.email, hashedPassword],
