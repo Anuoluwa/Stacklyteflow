@@ -25,6 +25,7 @@ router.post('/auth/login', Auth.login);
 /** @router for questions controller */
 
 router.get('/questions', Question.GetAllQuestions);
+router.get('/questions/:id', Question.GetOneQuestion);
 
 
 export default router;
