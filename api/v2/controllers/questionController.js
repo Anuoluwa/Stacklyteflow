@@ -2,7 +2,6 @@ import pool from '../config/config';
 
 export default class Questions {
   static async GetAllQuestions(req, res) {
-    // const { id } = req.userid;
     const { rows } = await pool
       .query('SELECT * FROM questions');
     res.status(200).json({
@@ -10,14 +9,15 @@ export default class Questions {
       message: 'Operation successful!',
       questions: rows,
     });
+    if (rows.length == 0) {
+      return res.status().json({ message: 'No question is available' });
+    }
   }
 
   static async GetOneQuestion(req, res) {
-    // const { userId } = req.userid;
-    const { id } = parseInt(req.params.id, 10);
     const { rows } = await pool
-      .query('SELECT * FROM questions WHERE id = $1',
-        [id]);
+      .query('SELECT * FROM questions WHERE question_id = $1',
+        [req.params.id]);
     res.status(200).json({
       status: '200 OK',
       message: 'Operation successful!',
