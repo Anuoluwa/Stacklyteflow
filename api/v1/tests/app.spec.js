@@ -53,7 +53,7 @@ describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions/:id, for single question resource', () => {
     it('should be an object with keys and values that are not null', (done) => {
       request(app)
-        .get('/api/v1/question/1')
+        .get('/api/v1/questions/1')
         .set('Accept', 'application/json')
         .expect(200)
         .end((err, res) => {
@@ -66,7 +66,7 @@ describe('Test suite for questions endpoint controller', () => {
     });
     it('should be an object with keys and values', (done) => {
       request(app)
-        .get('/api/v1/question/1')
+        .get('/api/v1/questions/1')
         .set('Accept', 'application/json')
         .expect(200)
         .end((err, res) => {
@@ -90,7 +90,7 @@ describe('Test suite for questions endpoint controller', () => {
       });
       it('should be an object with keys and values', (done) => {
         request(app)
-          .post('/api/v1/question/')
+          .post('/api/v1/questions/')
           .set('Accept', 'application/json')
           .expect(200)
           .send({
@@ -106,7 +106,7 @@ describe('Test suite for questions endpoint controller', () => {
       });
       it('it return object in json', (done) => {
         request(app)
-          .post('localhost:3000/api/v1/questions')
+          .post('/api/v1/questions')
           .send({
             id: '1',
             title: 'This is a test',
@@ -156,7 +156,7 @@ describe('Test suite for questions endpoint controller', () => {
       });
       it('should be an object with keys and values', (done) => {
         request(app)
-          .post('/api/v1/question/1')
+          .post('/api/v1/questions/1')
           .set('Accept', 'application/json')
           .expect(200)
           .end((err, res) => {

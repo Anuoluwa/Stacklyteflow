@@ -1,7 +1,7 @@
 import express from 'express';
 import Question from '../controllers/questionController';
 import Auth from '../auth/authController';
-// import verifyToken from '../middlewares/verifyToken';
+import verifyToken from '../middlewares/verifyToken';
 
 const router = express.Router();
 /**
@@ -20,6 +20,7 @@ router.post('/auth/login', Auth.login);
 /** @router for questions controller */
 router.get('/questions', Question.GetAllQuestions);
 router.get('/questions/:id', Question.GetOneQuestion);
+router.post('/questions', verifyToken, Question.createQuestion);
 
 
 export default router;
