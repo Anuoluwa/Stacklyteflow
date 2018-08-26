@@ -12,13 +12,13 @@ describe('Server ', () => {
       .expect('Content-Type', 'application/json');
   });
 
-  it(' should return "Entry point not found"', () => {
+  it('should return "Entry point not found"', () => {
     request(app)
       .get('/api/v1/3')
       .expect(404, '{"message":"Entry point not Found"}')
       .expect('Content-Type', 'text/html');
   });
-  it(' should return "Welcome to the client side"', () => {
+  it('should return "Welcome to the client side"', () => {
     request(app)
       .get('/')
       .expect(200, '{"message":"Welcome to the client side"}')
@@ -28,7 +28,7 @@ describe('Server ', () => {
 // test suite for controllers
 describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
-    it('should return a 200 succcess', (done) => {
+    it('should return succcess without null', (done) => {
       request(app)
         .get('/api/v1/questions')
         .end((err, res) => {
@@ -37,14 +37,14 @@ describe('Test suite for questions endpoint controller', () => {
           done();
         });
     });
-    it('respond with json', (done) => {
+    it('respond with object in json', (done) => {
       request(app)
         .get('/api/v1/questions')
         .set('Content-Type', 'application/json')
         .expect(200);
       done();
     });
-    it('should return 200 for response object', (done) => {
+    it('should return success for response', (done) => {
       request(app)
         .get('/api/v1/questions')
         .end((error, res) => {

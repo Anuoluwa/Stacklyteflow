@@ -80,17 +80,17 @@ describe('Test suite for questions endpoint controller', () => {
   });
   describe('POST /questions/, to post single question resource', () => {
     describe('POST /questions', () => {
-      it('should responds with json', (done) => {
-        request(app)
-          .post('/questions')
-          .send({ title: 'qwerty', body: 'qwerty' })
-          .set('Accept', 'application/json')
-          .expect(200)
-          .end((err) => {
-            if (err) return done(err);
-            done();
-          });
-      });
+       it('should responds with json', (done) => {
+         request(app)
+           .post('/questions')
+           .send({ title: 'qwerty', body: 'qwerty' })
+           .set('Accept', 'application/json')
+           .expect(200)
+           .end((err) => {
+             if (err) return done(err);
+             done();
+           });
+    });
       it('should be an object with keys and values', (done) => {
         request(app)
           .post('/api/v1/question/')
