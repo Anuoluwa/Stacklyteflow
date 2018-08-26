@@ -12,13 +12,13 @@ describe('Server ', () => {
       .expect('Content-Type', 'application/json');
   });
 
-  it(' should return "Entry point not found"', () => {
+  it('should return "Entry point not found"', () => {
     request(app)
       .get('/api/v1/3')
       .expect(404, '{"message":"Entry point not Found"}')
       .expect('Content-Type', 'text/html');
   });
-  it(' should return "Welcome to the client side"', () => {
+  it('should return "Welcome to the client side"', () => {
     request(app)
       .get('/')
       .expect(200, '{"message":"Welcome to the client side"}')
