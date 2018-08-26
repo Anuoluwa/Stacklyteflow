@@ -43,4 +43,26 @@ export default class Questions {
       question: rows[0],
     });
   }
+
+  /**
+ * /GET a single question
+ *
+ * @async
+ * @function post a question in the database
+ * @param {req} url - The request obj that handles request that is coming in.
+ * @param {res} url - The response obj that handles response from request.
+ * @return {HTTP status<objec>, json} The rows of data  from the URL.
+ */
+  static async createQuestion(req, res) {
+    await pool.query(`INSERT INTO questions (title, body, user_id,
+       created_at) VALUES($1, $2, $3, Now()) RETURNING *`,
+    [req.body.title, req.body.body, req.userid], (err, result) => {
+      if (err) throw err;
+      res.status(200).json({
+        status: '200 OK',
+        message: 'Operation successful!',
+        question: result.rows,
+      });
+    });
+  }
 }
