@@ -2,9 +2,7 @@ import { expect } from 'chai';
 import request from 'supertest';
 import app from '../../../server';
 
-
-// This is to server testing
-describe('Server ', () => {
+describe('Test suite for Server ', () => {
   it("should return 'wlecome to LiteStack API v1!'", () => {
     request(app)
       .get('/api/v1/')
@@ -25,7 +23,6 @@ describe('Server ', () => {
       .expect('Content-Type', 'application/json');
   });
 });
-// test suite for controllers
 describe('Test suite for questions endpoint controller', () => {
   describe('GET /questions, for all questions in the endpoint', () => {
     it('should return succcess without null', (done) => {
@@ -127,7 +124,6 @@ describe('Test suite for questions endpoint controller', () => {
           });
       });
     });
-    // fdf
     describe('POST /questions/:id/answer, to post answer', () => {
       it('it should responds with json', (done) => {
         request(app)
