@@ -48,7 +48,7 @@ export default class Questions {
  * /GET a single question
  *
  * @async
- * @function post a question in the database
+ * @function post a question in the database with user id
  * @param {req} url - The request obj that handles request that is coming in.
  * @param {res} url - The response obj that handles response from request.
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
