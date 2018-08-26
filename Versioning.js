@@ -6,22 +6,18 @@ import path from 'path';
 const app = express();
 
 app.use(expressApiVersioning({
-  apiPath: path.join(__dirname, './api'), // absolute path to the api directory
-  test: /\/api\/(v[0-9]+).*/, // regular expression to get the version number from the url
-  entryPoint: 'index.js', // entry point exports a function which takes an instance of express as parameter.
-  instance: app, // passes an instance of express to the entry point
+  apiPath: path.join(__dirname, './api'),
+  test: /\/api\/(v[0-9]+).*/,
+  entryPoint: 'index.js',
+  instance: app,
 }, (error, req, res, next) => {
   if (error && error.code === 104) {
-    //  require('./UI/index').default(app);
-    res.status(200).send({ message: 'Welcome to the client side' });
+    res.status(200).send({ message: 'Welcome!' });
   }
   if (error && error.code !== 104) {
-    //  require('./UI/index').default(app);
     res.status(500).send({ message: error.message });
   }
-  /* eslint-disable no-unreachable */
   next();
-  /* eslint-enable */
 }));
 
 export default app;

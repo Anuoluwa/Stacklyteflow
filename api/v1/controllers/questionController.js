@@ -2,7 +2,6 @@ import questions from '../models/questions';
 
 const { validationResult } = require('express-validator/check');
 
-
 export default class Questions {
   static async GetAllQuestions(req, res) {
     try {
@@ -29,7 +28,7 @@ export default class Questions {
   static setQuestion(req, res) {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
+      return res.status(422).json({ });
     }
     const question = {
       id: questions.length + 1,

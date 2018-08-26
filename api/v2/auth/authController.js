@@ -9,14 +9,11 @@ export default class Auth {
  * @param {req} obj request-response cycle
  * @param {res} obj request-response cycle
  * @return sign up details if response=200
- * @return statuscode 404 if email and username don not exixts
+ * @return statuscode 404 if email and username do not exists
  *
  * */
   static signUp(req, res) {
     const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-    if (typeof hashedPassword !== 'string') {
-      res.json({ message: 'Invalid password..password should be a string' });
-    }
     const sql = {
       text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
       values: [req.body.username, req.body.email, hashedPassword],
