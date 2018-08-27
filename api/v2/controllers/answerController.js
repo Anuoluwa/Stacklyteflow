@@ -24,4 +24,32 @@ export default class Answers {
       });
     });
   }
+  static async updateAnswer(req, res) {
+    const id = parseInt(req.params.id, 10);
+    await pool.query(
+      `UPDATE answers SET reply=$1 WHERE answer_id=$2,question_id=$3
+         AND user_id=$3  RETURNING *`,
+      [req.body.reply, req.body.status, id], (err, result) => {
+        if (err) throw err;
+        res.status(200).json({
+          status: 'success',
+          message: 'Answer updated!',
+          Response: result.rows,
+        });
+      },
+    );
+  }
+
+  static async updateAnswerStatus(req, res) {
+    // const id = parseInt(req.params.id, 10);
+    await pool.query('UPDATE answers SET status=$1 WHERE answer_id=$2, question_id =$3 AND  RETURNING *',
+      ['Accepted', req.body.answer_id, req.body.answer_id], (err, result) => {
+        if (err) throw err;
+        res.status(200).json({
+          status: 'success',
+          message: 'Answer updated!',
+          Response: result.rows,
+        });
+      });
+  }
 }
