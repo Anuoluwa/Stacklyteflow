@@ -45,7 +45,7 @@ export default class Questions {
   }
 
   /**
- * /GET a single question
+ * /POST a single question
  *
  * @async
  * @function post a question in the database with user id
@@ -81,14 +81,13 @@ export default class Questions {
       text: 'DELETE FROM questions WHERE question_id = $1 AND user_id = $2',
       values: [parseInt(req.params.id, 10), req.user_id],
     };
-    pool.query(deleteOne, (err, result) => {
+    pool.query(deleteOne, (err) => {
       if (err) {
         throw err.stack;
       }
       res.status(200).json({
         status: '200',
         message: `Question with ${req.params.id} removed successful!`,
-        questions: result.rows,
       });
     });
   }
