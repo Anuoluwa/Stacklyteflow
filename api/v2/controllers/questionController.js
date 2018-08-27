@@ -65,4 +65,31 @@ export default class Questions {
       });
     });
   }
+
+  /**
+ * /DELETE a question by user
+ *
+ * @async
+ * @function delete a question in the database
+ * @param {req} url - The request obj that handles request that is coming in.
+ * @param {res} url - The response obj that handles response from request.
+ * @return {HTTP status<object>, json} The rows of data  from the URL.
+ */
+  static async removeQuestion(req, res) {
+    // const { id } = parseInt(req.params.id, 10);
+    const deleteOne = {
+      text: 'DELETE FROM questions WHERE question_id = $1 AND user_id = $2',
+      values: [parseInt(req.params.id, 10), req.user_id],
+    };
+    pool.query(deleteOne, (err, result) => {
+      if (err) {
+        throw err.stack;
+      }
+      res.status(200).json({
+        status: '200',
+        message: `Question with ${req.params.id} removed successful!`,
+        questions: result.rows,
+      });
+    });
+  }
 }

@@ -24,10 +24,9 @@ export default class Auth {
       }
       return res.status(200).json({
         status: 'Registered successfully!',
-        message:
-        'These are your registration details',
-      },
-      response.rows[0]);
+        message: 'These are your registration details',
+        details: response.rows[0],
+      });
     });
   }
 
@@ -40,19 +39,16 @@ export default class Auth {
    *
    * */
   static login(req, res) {
-    if (req.body.password === undefined && req.body.email === undefined) {
-      return res.status(404).send({ auth: false, token: null });
-    }
     const sql = {
       text: 'SELECT * FROM users WHERE email = $1 ',
       values: [req.body.email],
     };
     pool.query(sql, (err, response) => {
       if (err) {
-        return res.json({ message: 'Email and password do not exist' });
+        return res.status(404).json({ message: 'Email and password do not exist' });
       }
       if (!response.rows[0]) {
-        return res.json({ message: 'Email and password do not exist, please sign up' });
+        return res.status(404).json({ message: 'Email and password do not exist, please sign up' });
       }
       const passwordIsValid = bcrypt.compareSync(req.body.password, response.rows[0].password);
       if (req.body.email !== response.rows[0].email || !passwordIsValid) {
@@ -65,7 +61,7 @@ export default class Auth {
             expiresIn: '1hr',
           },
         );
-        res.status(200).send({ authentication: 'Successful', token, message: 'Copy and keep token for protected endpoints' });
+        res.status(200).json({ authentication: 'Successful', token, message: 'Copy and keep token for protected endpoints' });
       }
     });
   }
