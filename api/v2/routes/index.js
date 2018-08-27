@@ -1,5 +1,7 @@
 import express from 'express';
 import Question from '../controllers/questionController';
+import Answer from '../controllers/answerController';
+
 import Auth from '../auth/authController';
 import verifyToken from '../middlewares/verifyToken';
 
@@ -22,6 +24,7 @@ router.get('/questions', Question.GetAllQuestions);
 router.get('/questions/:id', Question.GetOneQuestion);
 router.post('/questions', verifyToken, Question.createQuestion);
 router.delete('/questions/:id', verifyToken, Question.removeQuestion);
+router.post('/questions/:id/answers', verifyToken, Answer.createAnswer);
 
 
 export default router;
