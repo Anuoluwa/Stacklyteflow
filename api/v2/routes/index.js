@@ -1,8 +1,7 @@
 import express from 'express';
 import Question from '../controllers/questionController';
 import Answer from '../controllers/answerController';
-// import authValidator from '../middlewares/authValidator';
-import loginValidator from '../middlewares/loginValidator';
+
 
 import Auth from '../auth/authController';
 import verifyToken from '../middlewares/verifyToken';

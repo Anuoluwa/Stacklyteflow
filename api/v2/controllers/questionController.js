@@ -34,14 +34,26 @@ export default class Questions {
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
  */
   static async GetOneQuestion(req, res) {
-    const { rows } = await pool
-      .query('SELECT * FROM questions WHERE question_id = $1',
-        [req.params.id]);
-    res.status(200).json({
-      status: '200 OK',
-      message: 'Operation successful!',
-      question: rows[0],
-    });
+    try {
+      const { rows } = await pool
+        .query('SELECT * FROM questions WHERE question_id = $1',
+          [req.params.id]);
+      if (rows.length === 0) {
+        res.send({
+          status: '404 NOT FOUND',
+          message: `The question with this id: ${req.params.id} does not exist!`,
+          question: rows[0],
+        });
+      } else {
+        res.status(200).json({
+          status: '200 OK',
+          message: 'Operation successful!',
+          question: rows[0],
+        });
+      }
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 
   /**
@@ -76,20 +88,23 @@ export default class Questions {
  * @return {HTTP status<object>, json} The rows of data  from the URL.
  */
   static async removeQuestion(req, res) {
-    // const { id } = parseInt(req.params.id, 10);
-    const deleteOne = {
-      text: 'DELETE FROM questions WHERE question_id = $1 AND user_id = $2',
-      values: [parseInt(req.params.id, 10), req.user_id],
-    };
-    pool.query(deleteOne, (err) => {
-      if (err) {
-        throw err.stack;
-      }
-      res.status(200).json({
-        status: '200',
-        message: `Question with ${req.params.id} removed successful!`,
+    try {
+      const deleteOne = {
+        text: 'DELETE FROM questions WHERE question_id = $1 AND user_id = $2',
+        values: [parseInt(req.params.id, 10), req.user_id],
+      };
+      pool.query(deleteOne, (err) => {
+        if (err) {
+          throw err.stack;
+        }
+        res.status(200).json({
+          status: '200',
+          message: `Question with ${req.params.id} removed successful!`,
+        });
       });
-    });
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 
   /**
