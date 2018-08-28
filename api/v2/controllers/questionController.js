@@ -91,4 +91,26 @@ export default class Questions {
       });
     });
   }
+
+  /**
+ * /GET all questions
+ *
+ * @async
+ * @function get all questions in the database
+ * @param {req} url - The request obj that handles request that is coming in.
+ * @param {res} url - The response obj that handles response from request.
+ * @return {HTTP status<objec>, json} The rows of data  from the URL.
+ */
+  static async GetUserQuestions(req, res) {
+    const { rows } = await pool
+      .query('SELECT * FROM questions WHERE user-id=$1 VALUES($1)', [req.userid]);
+    res.status(200).json({
+      message: 'Operation successful!',
+      status: '200 OK',
+      questions: rows,
+    });
+    if (rows.length == 0) {
+      return res.status().json({ message: 'No question is available' });
+    }
+  }
 }

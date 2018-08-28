@@ -1,6 +1,8 @@
 import express from 'express';
 import Question from '../controllers/questionController';
 import Answer from '../controllers/answerController';
+// import authValidator from '../middlewares/authValidator';
+import loginValidator from '../middlewares/loginValidator';
 
 import Auth from '../auth/authController';
 import verifyToken from '../middlewares/verifyToken';
@@ -26,6 +28,8 @@ router.post('/questions', verifyToken, Question.createQuestion);
 router.delete('/questions/:id', verifyToken, Question.removeQuestion);
 router.post('/questions/:id/answers', verifyToken, Answer.createAnswer);
 router.put('/questions/:id/answers/:id', verifyToken, Answer.updateAnswer);
+router.post('/answers/:id/comments', verifyToken, Answer.createComment);
+router.get('users/questions', verifyToken, Question.GetUserQuestions);
 
 
 export default router;
