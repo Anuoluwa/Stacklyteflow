@@ -25,6 +25,7 @@ router.get('/questions/:id', Question.GetOneQuestion);
 router.post('/questions', verifyToken, Question.createQuestion);
 router.delete('/questions/:id', verifyToken, Question.removeQuestion);
 router.post('/questions/:id/answers', verifyToken, Answer.createAnswer);
+router.put('/questions/:id/answers/:id', verifyToken, Answer.updateAnswer);
 
 
 export default router;
