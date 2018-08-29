@@ -28,17 +28,21 @@ export default class Answers {
   }
 
   static async updateAnswer(req, res) {
-    const id = parseInt(req.params, 10);
-    const { rows } = await pool.query(
-      `UPDATE answers SET reply=$1 WHERE answer_id=$2,question_id=$3
+    try {
+      const id = parseInt(req.params, 10);
+      const { rows } = await pool.query(
+        `UPDATE answers SET reply=$1 WHERE answer_id=$2 AND question_id=$3
          OR user_id=$3  RETURNING *`,
-      [req.body.reply, req.body.status, id],
-    );
-    res.status(200).json({
-      status: 'success',
-      message: 'Answer updated!',
-      data: rows,
-    });
+        [req.body.reply, id, req.userid],
+      );
+      res.status(200).json({
+        status: 'success',
+        message: 'Answer updated!',
+        data: rows,
+      });
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 
   /**
