@@ -1,4 +1,20 @@
+/**
+ * A class to represent validation conditions.
+ * @class authValidator
+ *
+ * @constructor none
+ *@static
+ * @method gives validation condition to input to auth/signin controller
+ * @method gives validation condition to input to auth/login controller
+ */
 class authValidator {
+  /**
+     * Middleware for validation for all users input to question controller .
+     * @param {req} str - The req is the receiver of inputs from client.
+     * @param {res} str - The res is the carries response to user end from server.
+     * @return {res.status()} A response object and emit appropriate errors.
+     */
+
   static signup(req, res, next) {
     const { username, email, password } = req.body;
     const validUsername = /^[a-zA-Z\-]+$/.test(username);
@@ -32,6 +48,12 @@ class authValidator {
     }
     next();
   }
+  /**
+     * Middleware for validation for all users input to question controller .
+     * @param {req} str - The req is the receiver of inputs from client.
+     * @param {res} str - The res is the carries response to user end from server.
+     * @return {res.status()} A response object and emit appropriate errors.
+     */
 
   static login(req, res, next) {
     const { email, password } = req.body;

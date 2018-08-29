@@ -26,6 +26,15 @@ export default class Answers {
       res.send({ message: `Error ${error}` });
     }
   }
+  /**
+ * update an existing answer in the database
+ *
+ * @async
+ * @function to update an existing answer
+ * @param {req} url - the request cycle from express that carries client requests
+ * @param {res} url - the response cycle from express that carries client requests
+ * @return {data} The data from the database.
+ */
 
   static async updateAnswer(req, res) {
     try {

@@ -1,4 +1,21 @@
+/**
+ * A class to represent validation conditions.
+ * @class ValidateInput
+ *
+ * @constructor none
+ *@static
+ * @method gives validation condition to input to question controller
+ * @method gives validation condition to input to answer controller
+ * @method gives validation condition to input to comment method
+ */
 class ValidateInput {
+  /**
+     * Middleware for validation for all users input to question controller .
+     * @param {req} str - The req is the receiver of inputs from client.
+     * @param {res} str - The res is the carries response to user end from server.
+     * @return {res.status()} A response object and emit appropriate errors.
+     */
+
   static QuestionInput(req, res, next) {
     const { title, body } = req.body;
     if (!title || title.length < 19) {
@@ -20,6 +37,12 @@ class ValidateInput {
     next();
   }
 
+  /**
+     * Middleware for validation for all users input to answer controller .
+     * @param {req} str - The req is the receiver of inputs from client.
+     * @param {res} str - The res is the carries response to user end from server.
+     * @return {res.status()} A response object and emit appropriate errors.
+     */
   static AnswerInput(req, res, next) {
     const { reply } = req.body;
     if (!reply || reply.length < 19 || reply.length > 201) {
@@ -32,6 +55,12 @@ class ValidateInput {
     }
     next();
   }
+  /**
+     * Middleware for validation for all users input to comment methods.
+     * @param {req} str - The req is the receiver of inputs from client.
+     * @param {res} str - The res is the carries response to user end from server.
+     * @return {res.status()} A response object and emit appropriate errors.
+     */
 
   static CommentInput(req, res, next) {
     const { comment } = req.body;
