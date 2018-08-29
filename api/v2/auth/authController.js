@@ -2,6 +2,7 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import pool from '../config/config';
 
+
 /** class representing an authentication with static method for signup and login */
 export default class Auth {
 /**
@@ -12,22 +13,33 @@ export default class Auth {
  * @return statuscode 404 if email and username do not exists
  *
  * */
-  static signUp(req, res) {
-    const hashedPassword = bcrypt.hashSync(req.body.password, 10);
-    const sql = {
-      text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
-      values: [req.body.username, req.body.email, hashedPassword],
-    };
-    pool.query(sql, (err, response) => {
-      if (err) {
-        return res.status(404).json({ message: 'Email and username already taken' });
+  static async signUp(req, res) {
+    try {
+      const sqlUser = {
+        text: 'SELECT * FROM users WHERE email=$1',
+        values: [req.body.email],
+      };
+      const validAccount = await pool.query(sqlUser);
+      if (validAccount.rowCount > 0) {
+        return res.status(400).json({
+          message: 'user already exists',
+        });
       }
-      return res.status(200).json({
+
+      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+      const sql = {
+        text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
+        values: [req.body.username, req.body.email, hashedPassword],
+      };
+      const { rows } = await pool.query(sql);
+      res.status(200).json({
         status: 'Registered successfully!',
         message: 'These are your registration details',
-        details: response.rows[0],
+        details: rows[0],
       });
-    });
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 
   /**

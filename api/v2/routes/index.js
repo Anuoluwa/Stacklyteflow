@@ -1,6 +1,9 @@
 import express from 'express';
 import Question from '../controllers/questionController';
 import Answer from '../controllers/answerController';
+import Validator from '../middlewares/inputValidator';
+import authValidator from '../middlewares/authValidator';
+
 
 import Auth from '../auth/authController';
 import verifyToken from '../middlewares/verifyToken';
@@ -17,15 +20,18 @@ router.get('/', (req, res) => res.send({ message: 'Successful!, Welcome to LiteS
  *
  *
  */
-router.post('/auth/signup', Auth.signUp);
-router.post('/auth/login', Auth.login);
+router.post('/auth/signup', authValidator.signup, Auth.signUp);
+router.post('/auth/login', authValidator.login, Auth.login);
 /** @router for questions controller */
 router.get('/questions', Question.GetAllQuestions);
 router.get('/questions/:id', Question.GetOneQuestion);
-router.post('/questions', verifyToken, Question.createQuestion);
+router.post('/questions', Validator.QuestionInput, verifyToken, Question.createQuestion);
 router.delete('/questions/:id', verifyToken, Question.removeQuestion);
-router.post('/questions/:id/answers', verifyToken, Answer.createAnswer);
+router.post('/questions/:id/answers', Validator.AnswerInput, verifyToken, Answer.createAnswer);
 router.put('/questions/:id/answers/:id', verifyToken, Answer.updateAnswer);
+/** @router additional feature routes */
+router.post('/answers/:id/comments', Validator.CommentInput, verifyToken, Answer.createComment);
+router.get('users/questions', verifyToken, Question.GetUserQuestions);
 
 
 export default router;
