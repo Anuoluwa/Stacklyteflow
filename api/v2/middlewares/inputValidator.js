@@ -4,7 +4,7 @@ class ValidateInput {
     if (!title || title.length < 19 || title.length > 201) {
       return res.status(400).end('"title" must be a string with length between 50 and 200');
     }
-    if (!body || body.length < 39 || body.length > 501) {
+    if (!body || body.length < 19 || body.length > 201) {
       return res.status(400).end('"body" must be a string with length between 40 and 500');
     }
     next();
@@ -13,7 +13,7 @@ class ValidateInput {
   static AnswerInput(req, res, next) {
     const { reply } = req.body;
     if (!reply || reply.length < 19 || reply.length > 201) {
-      return res.status(400).end('"reply" must be a string with length between 50 and 200');
+      return res.status(400).end('"reply" must be a string with length between 20 and 200');
     }
     next();
   }

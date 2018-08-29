@@ -89,19 +89,25 @@ export default class Questions {
  */
   static async removeQuestion(req, res) {
     try {
-      const deleteOne = {
-        text: 'DELETE FROM questions WHERE question_id = $1 AND user_id = $2',
-        values: [parseInt(req.params.id, 10), req.user_id],
-      };
-      pool.query(deleteOne, (err) => {
-        if (err) {
-          throw err.stack;
-        }
+      const { check } = await pool
+        .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
+          [req.params.id, req.userid]);
+      const { rows } = await pool
+        .query('DELETE FROM questions WHERE question_id = $1 AND user_id =$2',
+          [req.params.id, req.userid]);
+      if (rows.length === 0) {
         res.status(200).json({
           status: '200',
-          message: `Question with ${req.params.id} removed successful!`,
+          message: `The question with this id: ${req.params.id} has been removed!`,
         });
-      });
+      }
+      if (check) {
+        res.status(401).json({
+          status: '401 Unauthorized',
+          message: 'You are not the owner of the question!',
+          question: rows[0],
+        });
+      }
     } catch (error) {
       res.send({ message: `Error ${error}` });
     }

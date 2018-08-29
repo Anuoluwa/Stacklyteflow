@@ -13,32 +13,32 @@ export default class Answers {
  */
   static async createAnswer(req, res) {
     const id = parseInt(req.params.id, 10);
-    await pool.query(`INSERT INTO answers (reply, user_id, question_id) 
+    try {
+      const { rows } = await pool.query(`INSERT INTO answers (reply, user_id, question_id) 
     VALUES($1, $2, $3) RETURNING *`,
-    [req.body.reply, req.userid, id], (err, result) => {
-      if (err) throw err;
+      [req.body.reply, req.userid, id]);
       res.status(200).json({
         status: '200 OK',
         message: 'Operation successful!',
-        question: result.rows,
+        question: rows,
       });
-    });
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 
   static async updateAnswer(req, res) {
     const id = parseInt(req.params, 10);
-    await pool.query(
+    const { rows } = await pool.query(
       `UPDATE answers SET reply=$1 WHERE answer_id=$2,question_id=$3
          OR user_id=$3  RETURNING *`,
-      [req.body.reply, req.body.status, id], (err, result) => {
-        if (err) throw err;
-        res.status(200).json({
-          status: 'success',
-          message: 'Answer updated!',
-          Response: result.rows,
-        });
-      },
+      [req.body.reply, req.body.status, id],
     );
+    res.status(200).json({
+      status: 'success',
+      message: 'Answer updated!',
+      data: rows,
+    });
   }
 
   /**
@@ -53,18 +53,16 @@ export default class Answers {
   static async createComment(req, res) {
     try {
       const id = parseInt(req.params, 10);
-      await pool.query(`INSERT INTO comments (comment, user_id, answer_id) 
+      const { rows } = await pool.query(`INSERT INTO comments (comment, user_id, answer_id) 
     VALUES($1, $2, $3) RETURNING *`,
-      [req.body.comment, req.userid, id], (err, result) => {
-        if (err) throw err;
-        res.status(200).json({
-          status: '200 OK',
-          message: 'Operation successful!',
-          question: result.rows,
-        });
+      [req.body.comment, req.userid, id]);
+      res.status(200).json({
+        status: '200 OK',
+        message: 'Operation successful!',
+        question: rows,
       });
     } catch (error) {
-      res.status(400).json({ message: `Bad request : Error: ${error}` });
+      res.status(500).json({ message: `Bad request : Error: ${error}` });
     }
   }
 }

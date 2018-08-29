@@ -26,9 +26,9 @@ router.get('/questions', Question.GetAllQuestions);
 router.get('/questions/:id', Question.GetOneQuestion);
 router.post('/questions', Validator.QuestionInput, verifyToken, Question.createQuestion);
 router.delete('/questions/:id', verifyToken, Question.removeQuestion);
-router.post('/questions/:id/answers', Validator.QuestionInput, verifyToken, Answer.createAnswer);
+router.post('/questions/:id/answers', Validator.AnswerInput, verifyToken, Answer.createAnswer);
 router.put('/questions/:id/answers/:id', verifyToken, Answer.updateAnswer);
-router.post('/answers/:id/comments', Validator.AnswerInput, verifyToken, Answer.createComment);
+router.post('/answers/:id/comments', Validator.CommentInput, verifyToken, Answer.createComment);
 router.get('users/questions', verifyToken, Question.GetUserQuestions);
 
 
