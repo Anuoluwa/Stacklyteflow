@@ -39,7 +39,7 @@ export default class Questions {
         .query('SELECT * FROM questions WHERE question_id = $1',
           [req.params.id]);
       if (rows.length === 0) {
-        res.send({
+        res.status(404).json({
           status: '404 NOT FOUND',
           message: `The question with this id: ${req.params.id} does not exist!`,
           question: rows[0],
