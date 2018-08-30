@@ -20,24 +20,30 @@ export default class Auth {
         values: [req.body.email],
       };
       const validAccount = await pool.query(sqlUser);
-      if (validAccount.rows.length > 0) {
+      if (validAccount.rowCount > 0) {
         return res.status(400).json({
           message: 'email already exists',
         });
       }
-      const hashedPassword = bcrypt.hashSync(req.body.password, 1);
+      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
       const sql = {
         text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
         values: [req.body.username, req.body.email, hashedPassword],
       };
-      const userDetails = await pool.query(sql);
+      await pool.query(sql);
       res.status(200).json({
         status: '200 OK',
         message: 'Registered successfully!',
-        details: userDetails.rows[0],
       });
+      const token = jwt.sign(
+        { id: res.rows[0].user_id, email: req.body.email }, process.env.SECRET_KEY,
+        {
+          expiresIn: '1hr',
+        },
+      );
+      res.status(200).json({ status: '200 OK', authentication: 'Successful', token });
     } catch (error) {
-      res.status(500).json({ message: `Bad request : Error: ${error}` });
+      res.send({ message: `Bad request : Error: ${error}` });
     }
   }
 

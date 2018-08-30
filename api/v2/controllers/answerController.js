@@ -37,34 +37,54 @@ export default class Answers {
  */
 
   static async updateAnswer(req, res) {
+    const userId = req.userid;
+    const { questionId, answerId } = req.params;
+    const { reply } = req.body;
     try {
-      const validQuestionId = await pool.query('SELECT * FROM questions WHERE user_id =$1',
-        [req.userid]);
-      console.log(validQuestionId);
-      if (validQuestionId.rows.length == 0) {
-        return res.send({ message: 'question ID does not exist!' });
+      const checkQuestion = await pool.query(`SELECT * FROM questions
+       WHERE question_id = $1`, [questionId]);
+      if (checkQuestion.rowCount === 0) {
+        return res.status(404).json({
+          status: '404 NOT FOUND',
+          message: 'question does not exist',
+        });
       }
-      const validAnswerId = await pool.query('SELECT * FROM answers WHERE user_id =$1',
-        [req.userid]);
-      if (validAnswerId.rows.length === 0) {
-        return res.send({ message: 'Answer ID does not exist!' });
+      const checkIfAnswerExists = await pool
+        .query('SELECT answer_id FROM answers WHERE answers.answer_id = $1', [answerId]);
+      if (checkIfAnswerExists.rowCount === 0) {
+        return res.status(404).json({
+          status: '404 NOT FOUND',
+          message: 'Answer does not exist for this question',
+        });
       }
-      if (validQuestionId.rows[0].user_id === req.user_id) {
-        await pool
-          .query(
-            'UPDATE answers SET status = $1 WHERE answer_id=$2 returning *',
-            ['Accept', req.params.id],
-          );
+      if (userId === checkQuestion.rows[0].user_id) {
+        const acceptedAnswer = await pool
+          .query('UPDATE answers SET status = $1 WHERE answer_id = $2 RETURNING *',
+            ['Accepted', answerId]);
+        return res.status(200).json({
+          status: '200 OK',
+          message: 'Answer has been set to accepted',
+          answer: acceptedAnswer.rows,
+        });
       }
-      if (validAnswerId.rows[0].user_id === req.user_id) {
-        return res.send({ message: 'Unathorized' });
+      if (userId === checkIfAnswerExists.rows[0].user_id) {
+        const updateResult = await pool
+          .query(`UPDATE answers SET reply= $1 WHERE answer_id = $2 
+          AND user_id =$3 RETURNING *`, [reply, answerId, userId]);
+        if (updateResult.rowCount > 0) {
+          return res.status(200).json({
+            status: 'success',
+            message: 'Answer has been updated successfully',
+            answer: updateResult.rows,
+          });
+        }
       }
-      await pool.query(
-        'UPDATE answers SET reply=$1 RETURNING *',
-        [req.reply],
-      );
+      return res.status(403).json({
+        status: '401 UNAUTHORIZED',
+        message: 'You are unathorized!',
+      });
     } catch (error) {
-      res.send({ message: `Error ${error}` });
+      res.status(500).json({ message: `Bad request : Error: ${error}` });
     }
   }
 
