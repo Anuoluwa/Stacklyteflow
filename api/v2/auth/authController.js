@@ -31,10 +31,9 @@ export default class Auth {
         values: [req.body.username, req.body.email, hashedPassword],
       };
       const userDetails = await pool.query(sql);
-      console.log(userDetails);
       res.status(200).json({
-        status: 'Registered successfully!',
-        message: 'These are your registration details',
+        status: '200 OK',
+        message: 'Registered successfully!',
         details: userDetails.rows[0],
       });
     } catch (error) {
@@ -74,7 +73,7 @@ export default class Auth {
             expiresIn: '1hr',
           },
         );
-        res.status(200).json({ authentication: 'Successful', token, message: 'Copy and keep token for protected endpoints' });
+        res.status(200).json({ status: '200 OK', authentication: 'Successful', token });
       }
     });
   }

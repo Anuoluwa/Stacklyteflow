@@ -12,14 +12,14 @@ export default class Questions {
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
  */
   static async GetAllQuestions(req, res) {
-    const rows = await pool
+    const result = await pool
       .query('SELECT * FROM questions');
     res.status(200).json({
       status: '200 OK',
       message: 'Operation successful!',
-      questions: rows,
+      questions: result,
     });
-    if (rows.length == 0) {
+    if (result.length == 0) {
       return res.status(404).json({
         status: '404 NOT FOUND',
         message: 'No question is available',
@@ -94,30 +94,51 @@ export default class Questions {
  * @return {HTTP status<object>, json} The rows of data  from the URL.
  */
   static async removeQuestion(req, res) {
+    // const userId = req.userid;
     try {
-      const check = await pool
+      const findQuestion = await pool
         .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
           [req.params.id, req.userid]);
-      const result = await pool
-        .query('DELETE FROM questions WHERE question_id = $1 AND user_id =$2',
-          [req.params.id, req.userid]);
-      if (result.length === 0) {
-        res.status(200).json({
+      const findAnswer = await pool
+        .query('SELECT * FROM answers WHERE question_id = $1',
+          [req.params.id]);
+      console.log(findQuestion.rows);
+      if (findQuestion.rows.length === 0) {
+        res.status(404).json({
           status: '404 NOT FOUND',
-          message: `The question with this id: ${req.params.id} does not exist!`,
+          message: 'The question does not exist!',
         });
       }
-      if (check) {
+      if (findAnswer.rows[0].length === 0) {
+        res.status(404).json({
+          status: '404 NOT FOUND',
+          message: 'The question does not exist!',
+        });
+      }
+      if (findQuestion.rows[0].user_id !== req.userid) {
+        res.status(404).json({
+          status: '401 Unathorized',
+          message: 'Unathorized!',
+        });
+      }
+      if (findQuestion.rows[0].user_id === req.userid) {
+        await pool
+          .query('DELETE FROM question WHERE question_id = $1',
+            [req.params.id]);
+        if (findAnswer.rows[0].length > 1) {
+          await pool
+            .query('DELETE FROM answers WHERE question_id = $1',
+              [req.params.id]);
+        }
         res.status(200).json({
-          status: '200 OK, Successful!',
-          message: `The question with this id: ${req.params.id} has been removed!`,
+          status: '',
+          message: 'The question has been removed!',
         });
       }
     } catch (error) {
       res.send({ message: `Error ${error}` });
     }
   }
-
   /**
  * /GET all questions
  *
@@ -127,33 +148,37 @@ export default class Questions {
  * @param {res} url - The response obj that handles response from request.
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
  */
+
   static async GetUserQuestions(req, res) {
-    const { rows } = await pool
-      .query('SELECT * FROM questions WHERE user-id=$1 VALUES($1)', [req.userid]);
+    const result = await pool
+      .query('SELECT * FROM questions WHERE user_id=$1', [req.userid]);
     res.status(200).json({
       message: 'Operation successful!',
       status: '200 OK',
-      questions: rows,
+      questions: result,
     });
-    if (rows.length == 0) {
-      return res.status().json({ message: 'No question is available' });
+    if (result.rows.length === 0) {
+      return res.status().json({
+        status: '200 ok',
+        message: 'No question is available',
+      });
     }
   }
 
   static async GetAllQuestionsAnswers(req, res) {
     try {
-      const rows = await pool
+      const result = await pool
         .query(`SELECT title, body, reply, COUNT(answers.question_id) FROM questions
                 JOIN answers ON answers.question_id = questions.question_id
                 GROUP BY reply, title, body, answers.question_id
                 ORDER BY answers.question_id DESC`);
-      if (rows.length === 0) {
+      if (result.rows.length === 0) {
         return res.status().json({ message: 'No question is available' });
       }
       res.status(200).json({
         status: '200 OK',
         message: 'Operation successful!',
-        questions: rows,
+        questions: result,
       });
     } catch (error) {
       res.status(500).json({ message: `Bad request : Error: ${error}` });

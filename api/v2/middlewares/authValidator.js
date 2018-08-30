@@ -25,7 +25,15 @@ export default class authValidator {
       return res.status(400).end(`"username" should not contain special characters,
          numbers and whitespace`);
     }
-    if (!username || username.length < 5 || username.length > 10) {
+    if (!username) {
+      return res.status(400)
+        .end('"username" must be a string with length between 6 and 10');
+    }
+    if (username.length > 10) {
+      return res.status(400)
+        .end('"username" must be a string with length between 6 and 10');
+    }
+    if (username.length < 5) {
       return res.status(400)
         .end('"username" must be a string with length between 6 and 10');
     }
@@ -36,7 +44,11 @@ export default class authValidator {
     if (!validEmail) {
       return res.status(400).end('"email" should be in the proper format');
     }
-    if (!password || password.length < 5) {
+    if (!password) {
+      return res.status(400)
+        .end('"password" must be a string with length between 6 and 12');
+    }
+    if (password.length < 5) {
       return res.status(400)
         .end('"password" must be a string with length between 6 and 12');
     }
@@ -67,7 +79,7 @@ export default class authValidator {
       return res.status(400)
         .end('"email" should be in the proper format');
     }
-    if (!password || password.length < 5) {
+    if (password.length < 5) {
       return res.status(400)
         .end('"password" must be a string with length between 6 and 12');
     }
