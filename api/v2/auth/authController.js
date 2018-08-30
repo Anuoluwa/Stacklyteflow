@@ -25,20 +25,19 @@ export default class Auth {
           message: 'user already exists',
         });
       }
-
       const hashedPassword = bcrypt.hashSync(req.body.password, 10);
       const sql = {
         text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
         values: [req.body.username, req.body.email, hashedPassword],
       };
-      const { rows } = await pool.query(sql);
+      const { rows } = pool.query(sql);
       res.status(200).json({
         status: 'Registered successfully!',
         message: 'These are your registration details',
         details: rows[0],
       });
     } catch (error) {
-      res.send({ message: `Error ${error}` });
+      console.log(error);
     }
   }
 
@@ -50,6 +49,7 @@ export default class Auth {
    * @return token for other protected endpoints
    *
    * */
+
   static login(req, res) {
     const sql = {
       text: 'SELECT * FROM users WHERE email = $1 ',

@@ -10,7 +10,7 @@ const pool = new Pool({
 
 });
 
-// let connectionString = process.env.DATABASE_URL;
+// let connectionString;
 // if (process.NODE_ENV) {
 //   if (process.NODE_ENV.trim() === 'test') connectionString = process.env.DATABASE_URL_TEST;
 

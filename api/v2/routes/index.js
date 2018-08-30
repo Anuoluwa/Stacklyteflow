@@ -1,12 +1,10 @@
 import express from 'express';
+import Auth from '../auth/authController';
+import verifyToken from '../middlewares/verifyToken';
 import Question from '../controllers/questionController';
 import Answer from '../controllers/answerController';
 import Validator from '../middlewares/inputValidator';
 import authValidator from '../middlewares/authValidator';
-
-
-import Auth from '../auth/authController';
-import verifyToken from '../middlewares/verifyToken';
 
 const router = express.Router();
 /**

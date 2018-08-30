@@ -7,7 +7,8 @@
  * @method gives validation condition to input to auth/signin controller
  * @method gives validation condition to input to auth/login controller
  */
-class authValidator {
+
+export default class authValidator {
   /**
      * Middleware for validation for all users input to question controller .
      * @param {req} str - The req is the receiver of inputs from client.
@@ -81,4 +82,3 @@ class authValidator {
     return next();
   }
 }
-export default authValidator;
