@@ -30,6 +30,7 @@ router.put('/questions/:id/answers/:id', verifyToken, Answer.updateAnswer);
 /** @router additional feature routes */
 router.post('/answers/:id/comments', Validator.CommentInput, verifyToken, Answer.createComment);
 router.get('users/questions', verifyToken, Question.GetUserQuestions);
+router.get('/questions/answers', Question.GetAllQuestionsAnswers);
 
 
 export default router;

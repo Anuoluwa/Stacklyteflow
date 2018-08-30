@@ -20,24 +20,25 @@ export default class Auth {
         values: [req.body.email],
       };
       const validAccount = await pool.query(sqlUser);
-      if (validAccount.rowCount > 0) {
+      if (validAccount.rows.length > 0) {
         return res.status(400).json({
-          message: 'user already exists',
+          message: 'email already exists',
         });
       }
-      const hashedPassword = bcrypt.hashSync(req.body.password, 10);
+      const hashedPassword = bcrypt.hashSync(req.body.password, 1);
       const sql = {
         text: 'INSERT INTO users (username, email, password) VALUES($1, $2, $3) RETURNING *',
         values: [req.body.username, req.body.email, hashedPassword],
       };
-      const { rows } = pool.query(sql);
+      const userDetails = await pool.query(sql);
+      console.log(userDetails);
       res.status(200).json({
         status: 'Registered successfully!',
         message: 'These are your registration details',
-        details: rows[0],
+        details: userDetails.rows[0],
       });
     } catch (error) {
-      console.log(error);
+      res.status(500).json({ message: `Bad request : Error: ${error}` });
     }
   }
 
@@ -66,7 +67,7 @@ export default class Auth {
       if (req.body.email !== response.rows[0].email || !passwordIsValid) {
         return res.status(404).send({ auth: false, token: null, message: 'Unauthorized! Invalid email or password' });
       }
-      if (req.body.email == response.rows[0].email && passwordIsValid) {
+      if (req.body.email === response.rows[0].email && passwordIsValid) {
         const token = jwt.sign(
           { id: response.rows[0].user_id, email: req.body.email }, process.env.SECRET_KEY,
           {

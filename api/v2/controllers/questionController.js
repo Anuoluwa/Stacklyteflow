@@ -136,31 +136,24 @@ export default class Questions {
     }
   }
 
-  static async Mostanswers(req, res) {
-    try {
-     //  const SQL = {
-        TEXT: `select title, body, reply, count(answers.question_id) from questions
-    join answers
-    on answers.question_id = questions.question_id
-    group by reply, title, body, answers.question_id
-    order by answers.question_id desc`,
-        // VALUES: [SQL],
-    //  };
-    } catch (error) {
-      res.status(404).json();
-    }
-  }
-
   static async GetAllQuestionsAnswers(req, res) {
-    const { rows } = await pool
-      .query('SELECT * FROM questions');
-    res.status(200).json({
-      status: '200 OK',
-      message: 'Operation successful!',
-      questions: rows,
-    });
-    if (rows.length == 0) {
-      return res.status().json({ message: 'No question is available' });
+    try {
+      const { rows } = await pool
+        .query(`select title, body, reply, count(answers.question_id) from questions
+                join answers
+                on answers.question_id = questions.question_id
+                group by reply, title, body, answers.question_id
+                order by answers.question_id desc`);
+      if (rows.length == 0) {
+        return res.status().json({ message: 'No question is available' });
+      }
+      res.status(200).json({
+        status: '200 OK',
+        message: 'Operation successful!',
+        questions: rows,
+      });
+    } catch (error) {
+      res.status(500).json({ message: `Bad request : Error: ${error}` });
     }
   }
 }
