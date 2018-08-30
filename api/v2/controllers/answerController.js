@@ -38,17 +38,31 @@ export default class Answers {
 
   static async updateAnswer(req, res) {
     try {
-      const id = parseInt(req.params, 10);
-      const { rows } = await pool.query(
-        `UPDATE answers SET reply=$1 WHERE answer_id=$2 AND question_id=$3
-         OR user_id=$3  RETURNING *`,
-        [req.body.reply, id, req.userid],
+      const validQuestionId = await pool.query('SELECT * FROM questions WHERE user_id =$1',
+        [req.userid]);
+      console.log(validQuestionId);
+      if (validQuestionId.rows.length == 0) {
+        return res.send({ message: 'question ID does not exist!' });
+      }
+      const validAnswerId = await pool.query('SELECT * FROM answers WHERE user_id =$1',
+        [req.userid]);
+      if (validAnswerId.rows.length === 0) {
+        return res.send({ message: 'Answer ID does not exist!' });
+      }
+      if (validQuestionId.rows[0].user_id === req.user_id) {
+        await pool
+          .query(
+            'UPDATE answers SET status = $1 WHERE answer_id=$2 returning *',
+            ['Accept', req.params.id],
+          );
+      }
+      if (validAnswerId.rows[0].user_id === req.user_id) {
+        return res.send({ message: 'Unathorized' });
+      }
+      await pool.query(
+        'UPDATE answers SET reply=$1 RETURNING *',
+        [req.reply],
       );
-      res.status(200).json({
-        status: 'success',
-        message: 'Answer updated!',
-        data: rows,
-      });
     } catch (error) {
       res.send({ message: `Error ${error}` });
     }
