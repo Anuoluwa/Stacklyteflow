@@ -12,7 +12,7 @@ export default class Questions {
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
  */
   static async GetAllQuestions(req, res) {
-    const { rows } = await pool
+    const rows = await pool
       .query('SELECT * FROM questions');
     res.status(200).json({
       status: '200 OK',
@@ -20,7 +20,10 @@ export default class Questions {
       questions: rows,
     });
     if (rows.length == 0) {
-      return res.status().json({ message: 'No question is available' });
+      return res.status(404).json({
+        status: '404 NOT FOUND',
+        message: 'No question is available',
+      });
     }
   }
 
@@ -35,21 +38,21 @@ export default class Questions {
  */
   static async GetOneQuestion(req, res) {
     try {
-      const { rows } = await pool
+      const questions = await pool
         .query('SELECT * FROM questions WHERE question_id = $1',
           [req.params.id]);
-      if (rows.length === 0) {
+      if (questions.length === 0) {
         res.status(404).json({
           status: '404 NOT FOUND',
           message: `The question with this id: ${req.params.id} does not exist!`,
-          question: rows[0],
         });
       } else {
-        const rowsAns = await pool.query('SELECT * FROM answers WHERE question_id=$1', [req.params.id]);
+        const answers = await pool.query('SELECT * FROM answers WHERE question_id=$1', [req.params.id]);
         res.status(200).json({
           status: '200 OK',
           message: 'Operation successful!',
-          question: rows[0].answers = rowsAns.rows,
+          question: questions.rows[0],
+          answers: answers.rows[0],
         });
       }
     } catch (error) {
@@ -67,16 +70,18 @@ export default class Questions {
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
  */
   static async createQuestion(req, res) {
-    await pool.query(`INSERT INTO questions (title, body, user_id,
-       created_at) VALUES($1, $2, $3, Now()) RETURNING *`,
-    [req.body.title, req.body.body, req.userid], (err, result) => {
-      if (err) throw err;
+    try {
+      const result = await pool.query(`INSERT INTO questions (title, body, user_id,
+        created_at) VALUES($1, $2, $3, Now()) RETURNING *`,
+      [req.body.title, req.body.body, req.userid]);
       res.status(200).json({
         status: '200 OK',
         message: 'Operation successful!',
-        question: result.rows,
+        question: result,
       });
-    });
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 
   /**
@@ -90,23 +95,22 @@ export default class Questions {
  */
   static async removeQuestion(req, res) {
     try {
-      const { check } = await pool
+      const check = await pool
         .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
           [req.params.id, req.userid]);
-      const { rows } = await pool
+      const result = await pool
         .query('DELETE FROM questions WHERE question_id = $1 AND user_id =$2',
           [req.params.id, req.userid]);
-      if (rows.length === 0) {
+      if (result.length === 0) {
         res.status(200).json({
-          status: '200',
-          message: `The question with this id: ${req.params.id} has been removed!`,
+          status: '404 NOT FOUND',
+          message: `The question with this id: ${req.params.id} does not exist!`,
         });
       }
       if (check) {
-        res.status(401).json({
-          status: '401 Unauthorized',
-          message: 'You are not the owner of the question!',
-          question: rows[0],
+        res.status(200).json({
+          status: '200 OK, Successful!',
+          message: `The question with this id: ${req.params.id} has been removed!`,
         });
       }
     } catch (error) {
@@ -138,13 +142,12 @@ export default class Questions {
 
   static async GetAllQuestionsAnswers(req, res) {
     try {
-      const { rows } = await pool
-        .query(`select title, body, reply, count(answers.question_id) from questions
-                join answers
-                on answers.question_id = questions.question_id
-                group by reply, title, body, answers.question_id
-                order by answers.question_id desc`);
-      if (rows.length == 0) {
+      const rows = await pool
+        .query(`SELECT title, body, reply, COUNT(answers.question_id) FROM questions
+                JOIN answers ON answers.question_id = questions.question_id
+                GROUP BY reply, title, body, answers.question_id
+                ORDER BY answers.question_id DESC`);
+      if (rows.length === 0) {
         return res.status().json({ message: 'No question is available' });
       }
       res.status(200).json({

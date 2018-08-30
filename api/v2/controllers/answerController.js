@@ -38,18 +38,19 @@ export default class Answers {
 
   static async updateAnswer(req, res) {
     try {
-      const validQuestionId = pool.query('SELECT * FROM questions WHERE user_id =$1',
+      const validQuestionId = await pool.query('SELECT * FROM questions WHERE user_id =$1',
         [req.userid]);
+      console.log(validQuestionId);
       if (validQuestionId.rows.length == 0) {
         return res.send({ message: 'question ID does not exist!' });
       }
-      const validAnswerId = pool.query('SELECT * FROM answers WHERE user_id =$1',
+      const validAnswerId = await pool.query('SELECT * FROM answers WHERE user_id =$1',
         [req.userid]);
-      if (validAnswerId.rows.length == 0) {
+      if (validAnswerId.rows.length === 0) {
         return res.send({ message: 'Answer ID does not exist!' });
       }
       if (validQuestionId.rows[0].user_id === req.user_id) {
-        pool
+        await pool
           .query(
             'UPDATE answers SET status = $1 WHERE answer_id=$2 returning *',
             ['Accept', req.params.id],
