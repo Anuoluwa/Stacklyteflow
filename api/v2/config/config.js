@@ -8,7 +8,7 @@ let connectionString = process.env.DATABASE_URL;
 if (process.NODE_ENV) {
   if (process.NODE_ENV.trim() === 'test') connectionString = process.env.ELEPHANT_TEST;
 
-  if (process.NODE_ENV.trim() === 'production') connectionString = process.env.ELEPHANTSQL_URL;
+  if (process.NODE_ENV.trim() === 'production') connectionString = process.env.PRODUCTION;
 }
 const pool = new Pool({
   connectionString,

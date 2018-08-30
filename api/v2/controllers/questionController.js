@@ -94,14 +94,14 @@ export default class Questions {
  * @return {HTTP status<object>, json} The rows of data  from the URL.
  */
   static async removeQuestion(req, res) {
-    // const userId = req.userid;
+    const id = parseInt(req.params.id, 10);
     try {
       const findQuestion = await pool
         .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
-          [req.params.id, req.userid]);
+          [id, req.userid]);
       const findAnswer = await pool
         .query('SELECT * FROM answers WHERE question_id = $1',
-          [req.params.id]);
+          [id]);
       console.log(findQuestion.rows);
       if (findQuestion.rows.length === 0) {
         res.status(404).json({
@@ -109,7 +109,7 @@ export default class Questions {
           message: 'The question does not exist!',
         });
       }
-      if (findAnswer.rows[0].length === 0) {
+      if (findAnswer.rows.length === 0) {
         res.status(404).json({
           status: '404 NOT FOUND',
           message: 'The question does not exist!',
@@ -121,14 +121,16 @@ export default class Questions {
           message: 'Unathorized!',
         });
       }
-      if (findQuestion.rows[0].user_id === req.userid) {
+      if (findQuestion.rows[0].user_id == req.userid) {
+        console.log(findQuestion.rows[0].user_id);
+        console.log(req.userid);
         await pool
-          .query('DELETE FROM question WHERE question_id = $1',
-            [req.params.id]);
+          .query('DELETE FROM questions WHERE question_id = $1',
+            [id]);
         if (findAnswer.rows[0].length > 1) {
           await pool
             .query('DELETE FROM answers WHERE question_id = $1',
-              [req.params.id]);
+              [id]);
         }
         res.status(200).json({
           status: '',
