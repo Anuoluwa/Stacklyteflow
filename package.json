@@ -4,7 +4,7 @@
   "description": "stack overflow lite clone ",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --watch server.js --exec babel-node -- server.js",
+    "start": "babel-node server.js",
     "test": "cross-env NODE_ENV=test nyc --reporter=html --reporter=text --require babel-polyfill --require babel-register mocha \" api/v1/tests/**/*.spec.js\" --reporter progress --exit ",
     "coveralls": "npm run coverage -- --report lcovonly && cat ./coverage/lcov.info | coveralls",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
