@@ -93,6 +93,44 @@ export default class Questions {
  * @param {res} url - The response obj that handles response from request.
  * @return {HTTP status<object>, json} The rows of data  from the URL.
  */
+
+  // static async removeQuestion(req, res) {
+  //   const userId = req.userid;
+  //   const { id } = req.params;
+  //   const questionId = parseInt(id, 10);
+  //   try {
+  //     const findQuestion = await pool
+  //       .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
+  //         [id, req.userid]);
+  //     const findAnswer = await pool
+  //       .query('SELECT * FROM answers WHERE question_id = $1',
+  //         [id]);
+  //     if (findQuestion.rows.length === 0 || findAnswer.rows.length === 0) {
+  //       res.status(404).json({
+  //         status: '404 NOT FOUND',
+  //         message: 'The item does not exist!',
+  //       });
+  //     }
+  //     if (findQuestion.rows[0].user_id !== req.userid) {
+  //       res.status(404).json({
+  //         status: '401 Unathorized',
+  //         message: 'Unathorized!',
+  //       });
+  //     }
+  //     if (findQuestion.rows[0].user_id == req.userid) {
+  //       const ans = await pool.query(`DELETE CASCADE FROM answers
+  //       WHERE answer_id = $1 AND questions.user_id = $2`, [findAnswer.rows[0].user_id, userId]);
+  //       const que = await pool.query(`DELETE CASCADE FROM questions
+  //       WHERE question_id = $1 AND questions.user_id = $2`, [questionId, userId]);
+  //       res.status(200).json({
+  //         status: '200 OK',
+  //         message: `The question with the ${questionId} has been removed`,
+  //       });
+  //     }
+  //   } catch (error) {
+  //     res.send({ message: `Error ${error}` });
+  //   }
+  // }
   static async removeQuestion(req, res) {
     const id = parseInt(req.params.id, 10);
     try {
@@ -102,7 +140,6 @@ export default class Questions {
       const findAnswer = await pool
         .query('SELECT * FROM answers WHERE question_id = $1',
           [id]);
-      console.log(findQuestion.rows);
       if (findQuestion.rows.length === 0) {
         res.status(404).json({
           status: '404 NOT FOUND',
@@ -122,16 +159,14 @@ export default class Questions {
         });
       }
       if (findQuestion.rows[0].user_id == req.userid) {
-        console.log(findQuestion.rows[0].user_id);
-        console.log(req.userid);
-        await pool
-          .query('DELETE FROM questions WHERE question_id = $1',
-            [id]);
         if (findAnswer.rows[0].length > 1) {
           await pool
             .query('DELETE FROM answers WHERE question_id = $1',
               [id]);
         }
+        await pool
+          .query('DELETE FROM questions WHERE question_id = $1',
+            [id]);
         res.status(200).json({
           status: '',
           message: 'The question has been removed!',
@@ -141,6 +176,7 @@ export default class Questions {
       res.send({ message: `Error ${error}` });
     }
   }
+
   /**
  * /GET all questions
  *

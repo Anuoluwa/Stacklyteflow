@@ -18,21 +18,29 @@ class ValidateInput {
 
   static QuestionInput(req, res, next) {
     const { title, body } = req.body;
-    if (!title || title.length < 19) {
+    if (!title) {
       return res.status(400)
-        .end('"title" must be a string with length between 20 and 200');
+        .end('"title" must be a string!');
+    }
+    if (title.length < 19) {
+      return res.status(400)
+        .end('"title" must be a string with minimum 20 characters ');
     }
     if (title.length > 201) {
       return res.status(400)
-        .end('"title" must be a string with length between 20 and 200');
+        .end('"title" must be a string with maximum 200 characters');
     }
-    if (!body || body.length < 19) {
+    if (!body) {
       return res.status(400)
-        .end('"body" must be a string with length between 20 and 500');
+        .end('"body" must be a string');
+    }
+    if (body.length < 19) {
+      return res.status(400)
+        .end('"body" must be a string with minimum 20 characters');
     }
     if (body.length > 201) {
       return res.status(400)
-        .end('"body" must be a string with length between 20 and 500');
+        .end('"body" must be a string with maximum 20 character ');
     }
     next();
   }
