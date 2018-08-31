@@ -12,18 +12,22 @@ export default class Questions {
  * @return {HTTP status<objec>, json} The rows of data  from the URL.
  */
   static async GetAllQuestions(req, res) {
-    const result = await pool
-      .query('SELECT * FROM questions');
-    res.status(200).json({
-      status: '200 OK',
-      message: 'Operation successful!',
-      questions: result,
-    });
-    if (result.length == 0) {
-      return res.status(404).json({
-        status: '404 NOT FOUND',
-        message: 'No question is available',
+    try {
+      const result = await pool
+        .query('SELECT * FROM questions');
+      res.status(200).json({
+        status: '200 OK',
+        message: 'Operation successful!',
+        questions: result.rows,
       });
+      if (result.length == 0) {
+        return res.status(404).json({
+          status: '404 NOT FOUND',
+          message: 'No question is available',
+        });
+      }
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
     }
   }
 
@@ -51,8 +55,8 @@ export default class Questions {
         res.status(200).json({
           status: '200 OK',
           message: 'Operation successful!',
-          question: questions.rows[0],
-          answers: answers.rows[0],
+          question: questions.rows,
+          answers: answers.rows,
         });
       }
     } catch (error) {
@@ -94,43 +98,6 @@ export default class Questions {
  * @return {HTTP status<object>, json} The rows of data  from the URL.
  */
 
-  // static async removeQuestion(req, res) {
-  //   const userId = req.userid;
-  //   const { id } = req.params;
-  //   const questionId = parseInt(id, 10);
-  //   try {
-  //     const findQuestion = await pool
-  //       .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
-  //         [id, req.userid]);
-  //     const findAnswer = await pool
-  //       .query('SELECT * FROM answers WHERE question_id = $1',
-  //         [id]);
-  //     if (findQuestion.rows.length === 0 || findAnswer.rows.length === 0) {
-  //       res.status(404).json({
-  //         status: '404 NOT FOUND',
-  //         message: 'The item does not exist!',
-  //       });
-  //     }
-  //     if (findQuestion.rows[0].user_id !== req.userid) {
-  //       res.status(404).json({
-  //         status: '401 Unathorized',
-  //         message: 'Unathorized!',
-  //       });
-  //     }
-  //     if (findQuestion.rows[0].user_id == req.userid) {
-  //       const ans = await pool.query(`DELETE CASCADE FROM answers
-  //       WHERE answer_id = $1 AND questions.user_id = $2`, [findAnswer.rows[0].user_id, userId]);
-  //       const que = await pool.query(`DELETE CASCADE FROM questions
-  //       WHERE question_id = $1 AND questions.user_id = $2`, [questionId, userId]);
-  //       res.status(200).json({
-  //         status: '200 OK',
-  //         message: `The question with the ${questionId} has been removed`,
-  //       });
-  //     }
-  //   } catch (error) {
-  //     res.send({ message: `Error ${error}` });
-  //   }
-  // }
   static async removeQuestion(req, res) {
     const id = parseInt(req.params.id, 10);
     try {
@@ -188,18 +155,22 @@ export default class Questions {
  */
 
   static async GetUserQuestions(req, res) {
-    const result = await pool
-      .query('SELECT * FROM questions WHERE user_id=$1', [req.userid]);
-    res.status(200).json({
-      message: 'Operation successful!',
-      status: '200 OK',
-      questions: result,
-    });
-    if (result.rows.length === 0) {
-      return res.status().json({
-        status: '200 ok',
-        message: 'No question is available',
+    try {
+      const result = await pool
+        .query('SELECT * FROM questions WHERE user_id=$1', [req.userid]);
+      res.status(200).json({
+        message: 'Operation successful!',
+        status: '200 OK',
+        questions: result,
       });
+      if (result.rows.length === 0) {
+        return res.status().json({
+          status: '200 ok',
+          message: 'No question is available',
+        });
+      }
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
     }
   }
 

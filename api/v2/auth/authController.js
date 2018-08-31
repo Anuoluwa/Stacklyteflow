@@ -57,30 +57,34 @@ export default class Auth {
    * */
 
   static login(req, res) {
-    const sql = {
-      text: 'SELECT * FROM users WHERE email = $1 ',
-      values: [req.body.email],
-    };
-    pool.query(sql, (err, response) => {
-      if (err) {
-        return res.status(404).json({ message: 'Email and password do not exist' });
-      }
-      if (!response.rows[0]) {
-        return res.status(404).json({ message: 'Email and password do not exist, please sign up' });
-      }
-      const passwordIsValid = bcrypt.compareSync(req.body.password, response.rows[0].password);
-      if (req.body.email !== response.rows[0].email || !passwordIsValid) {
-        return res.status(404).send({ auth: false, token: null, message: 'Unauthorized! Invalid email or password' });
-      }
-      if (req.body.email === response.rows[0].email && passwordIsValid) {
-        const token = jwt.sign(
-          { id: response.rows[0].user_id, email: req.body.email }, process.env.SECRET_KEY,
-          {
-            expiresIn: '1hr',
-          },
-        );
-        res.status(200).json({ status: '200 OK', authentication: 'Successful', token });
-      }
-    });
+    try {
+      const sql = {
+        text: 'SELECT * FROM users WHERE email = $1 ',
+        values: [req.body.email],
+      };
+      pool.query(sql, (err, response) => {
+        if (err) {
+          return res.status(404).json({ message: 'Email and password do not exist' });
+        }
+        if (!response.rows[0]) {
+          return res.status(404).json({ message: 'Email and password do not exist, please sign up' });
+        }
+        const passwordIsValid = bcrypt.compareSync(req.body.password, response.rows[0].password);
+        if (req.body.email !== response.rows[0].email || !passwordIsValid) {
+          return res.status(404).send({ auth: false, token: null, message: 'Unauthorized! Invalid email or password' });
+        }
+        if (req.body.email === response.rows[0].email && passwordIsValid) {
+          const token = jwt.sign(
+            { id: response.rows[0].user_id, email: req.body.email }, process.env.SECRET_KEY,
+            {
+              expiresIn: '1hr',
+            },
+          );
+          res.status(200).json({ status: '200 OK', authentication: 'Successful', token });
+        }
+      });
+    } catch (error) {
+      res.send({ message: `Error ${error}` });
+    }
   }
 }
