@@ -100,44 +100,33 @@ export default class Questions {
 
   static async removeQuestion(req, res) {
     const id = parseInt(req.params.id, 10);
+    const { userId } = req.body;
     try {
       const findQuestion = await pool
-        .query('SELECT * FROM questions WHERE question_id = $1 AND user_id =$2',
-          [id, req.userid]);
+        .query('SELECT * FROM questions WHERE question_id = $1',
+          [id]);
       const findAnswer = await pool
         .query('SELECT * FROM answers WHERE question_id = $1',
           [id]);
-      if (findQuestion.rows.length === 0) {
+      if (findQuestion.rowCount === 0) {
         res.status(404).json({
           status: '404 NOT FOUND',
           message: 'The question does not exist!',
         });
       }
-      if (findAnswer.rows.length === 0) {
-        res.status(404).json({
-          status: '404 NOT FOUND',
-          message: 'The question does not exist!',
+      if (findQuestion.rows[0].user_id === userId ) {
+        res.status(401).json({
+          status: '404 Unathorized',
+          message: 'You are not the owner of the question!',
         });
       }
-      if (findQuestion.rows[0].user_id !== req.userid) {
-        res.status(404).json({
-          status: '401 Unathorized',
-          message: 'Unathorized!',
-        });
-      }
-      if (findQuestion.rows[0].user_id == req.userid) {
-        if (findAnswer.rows[0].length > 1) {
-          await pool
-            .query('DELETE FROM answers WHERE question_id = $1',
-              [id]);
-        }
+      if (findAnswer.rowCount < 1) {
+        await pool.query('DELETE FROM questions WHERE question_id=$1', [req.question_id]);
+      } else {
         await pool
-          .query('DELETE FROM questions WHERE question_id = $1',
-            [id]);
-        res.status(200).json({
-          status: '',
-          message: 'The question has been removed!',
-        });
+            .query('DELETE FROM answers WHERE question_id = $1',
+              [req.question_id]);
+
       }
     } catch (error) {
       res.send({ message: `Error ${error}` });
